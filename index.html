@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html class="dark" lang="uk">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nova Bots | Шаблони Telegram-ботів та ІИ-рішення</title>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#e6e0e9",
+                        "on-surface-variant": "#cbc4d2",
+                        "surface": "#141218",
+                        "outline": "#948e9c",
+                        "outline-variant": "#494551",
+                        "primary": "#cfbcff",
+                        "secondary": "#cdc0e9",
+                        "tertiary": "#e7c365",
+                        "background": "#09090b",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "64px",
+                        "stack-unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "section-padding": "120px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-xl": ["Outfit", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "display-lg": ["Outfit", "sans-serif"],
+                        "display-lg-mobile": ["Outfit", "sans-serif"],
+                        "headline-lg": ["Outfit", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #09090b; /* Deep Space Black */
+            color: #e6e0e9;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background-color: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background-color: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #cfbcff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Gradient buttons */
+        .bg-gradient-primary {
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+        }
+        .bg-gradient-success {
+            background: linear-gradient(to right, #10b981, #14b8a6);
+        }
+
+        /* Subtle Glows */
+        .glow-underlay {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        /* CSS Phone Mockup animations and styles */
+        .phone-mockup {
+            border: 8px solid #27272a;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #0f0d13;
+            position: relative;
+        }
+        .phone-mockup::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 20px;
+            background: #27272a;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 40;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative">
+    <!-- Global Underglows -->
+    <div class="glow-underlay top-0 left-0"></div>
+    <div class="glow-underlay top-1/3 right-0" style="background: radial-gradient(circle, rgba(207,188,255,0.08) 0%, rgba(0,0,0,0) 70%);"></div>
+    <div class="glow-underlay bottom-1/4 left-1/4" style="background: radial-gradient(circle, rgba(16,185,129,0.05) 0%, rgba(0,0,0,0) 70%);"></div>
+
+    <!-- 1. TopNavBar -->
+    <header class="docked full-width top-0 sticky z-50 bg-zinc-950/60 backdrop-blur-xl border-b border-zinc-900 shadow-2xl">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <!-- Brand -->
+            <div class="font-headline-xl text-2xl font-bold tracking-tighter text-white">
+                Nova Bots
+            </div>
+            <!-- Nav Links -->
+            <nav class="hidden md:flex gap-8 items-center">
+                <a data-i18n="nav_catalog" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#catalog">Каталог</a>
+                <a data-i18n="nav_demo" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#demo">Інтерактивне Демо</a>
+                <a data-i18n="nav_pricing" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#pricing">Тарифи</a>
+                <a data-i18n="nav_order" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#contact">Замовити</a>
+            </nav>
+            <div class="hidden md:flex items-center gap-2 ml-8 mr-4 group relative">
+                <button class="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-300 py-2">
+                    <span class="material-symbols-outlined text-[20px]">language</span>
+                    <span class="font-label-sm text-xs uppercase">UA</span>
+                    <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+                </button>
+                <!-- Dropdown Menu -->
+                <div class="absolute top-full right-0 mt-2 w-40 glass-panel rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-zinc-800 shadow-2xl z-50">
+                    <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="en">English</a>
+                    <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="ru">Русский</a>
+                    <a class="flex items-center px-4 py-2 text-xs text-white bg-indigo-500/20 hover:bg-indigo-500/30 transition-colors lang-select" href="#" data-lang="uk">Українська</a>
+                </div>
+            </div>
+            <!-- Action Button -->
+            <a data-i18n="btn_order_bot" class="hidden md:inline-flex bg-gradient-primary text-white font-semibold text-xs px-6 py-3 rounded-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity" href="#contact">
+                Замовити бота
+            </a>
+            <!-- Mobile Menu Trigger -->
+            <button class="md:hidden text-white p-2" onclick="alert('Меню розробляється. Використовуйте прокручування сторінки.');">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- 2. Hero Section -->
+        <section class="py-section-padding flex flex-col md:flex-row items-center gap-gutter relative">
+            <div class="md:w-1/2 flex flex-col gap-6 z-10">
+                <h1 data-i18n="hero_title" class="font-display-lg-mobile md:font-display-lg text-4xl md:text-5xl lg:text-6px font-bold tracking-tight text-white leading-tight">
+                    Telegram-боти та ІИ-рішення, які <span class="text-gradient">працюють на ваш бізнес</span>
+                </h1>
+                <p data-i18n="hero_desc" class="text-zinc-400 text-lg leading-relaxed max-w-xl">
+                    Готові шаблони для автоматизації локальних сервісів з підтримкою автовизначення мови (i18n) та моментальним налаштуванням під будь-яке місто. Заощаджуйте тижні розробки.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                    <a data-i18n="hero_btn_catalog" class="bg-gradient-primary text-white font-semibold text-xs px-8 py-4 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] text-center hover:opacity-90 transition-opacity" href="#catalog">
+                        Дивитися каталог
+                    </a>
+                    <a data-i18n="hero_btn_turnkey" class="bg-transparent border border-zinc-800 text-white font-semibold text-xs px-8 py-4 rounded-xl text-center hover:bg-zinc-900 transition-colors" href="#contact">
+                        Замовити під ключ
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative flex justify-center items-center">
+                <div class="relative w-full max-w-md aspect-square rounded-full flex items-center justify-center">
+                    <div class="absolute inset-0 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="glass-panel w-64 h-64 rounded-2xl transform rotate-12 absolute flex items-center justify-center shadow-2xl z-10 border border-indigo-500/20">
+                        <span class="material-symbols-outlined text-6xl text-indigo-400 opacity-50" style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+                    </div>
+                    <div class="glass-panel w-48 h-48 rounded-xl transform -rotate-6 absolute -bottom-8 -left-4 flex items-center justify-center border border-emerald-500/20 z-20">
+                        <span class="material-symbols-outlined text-4xl text-emerald-400 opacity-50" style="font-variation-settings: 'FILL' 1;">forum</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Catalog Grid -->
+        <section class="py-section-padding border-t border-zinc-900" id="catalog">
+            <div class="text-center mb-16">
+                <h2 data-i18n="catalog_title" class="text-3xl font-bold text-white mb-4">Готові рішення (Шаблони)</h2>
+                <p data-i18n="catalog_subtitle" class="text-zinc-400 max-w-2xl mx-auto text-sm">Всі наші боти розроблені на чистому коді Python з вбудованим автовизначенням мов і легкою зміною налаштувань.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 (Flea Market - Featured) -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full lg:col-span-2 group hover:border-indigo-500/40 transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                <span class="material-symbols-outlined text-2xl">storefront</span>
+                            </div>
+                            <div>
+                                <h3 data-i18n="prod_market_title" class="text-xl font-bold text-white">Барахолка (локальний маркетплейс / аналог OLX / Авіто)</h3>
+                                <span class="bg-indigo-500/10 text-indigo-300 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md mt-1 inline-block">Конструктор міст</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-i18n="prod_market_desc" class="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                        Повноцінна доска оголошень для будь-якого міста (Київ, Берлін, Варшава, Ніжин та ін.). Достатньо змінити одну змінну <code>CITY_NAME</code> в файлі <code>.env</code> — і бот самостійно перебудує бази даних, опис, логіку фільтрів та привітання під вказане місто.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">🌐 Мультиязичность (i18n)</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">👥 Реферальна система</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">💳 VIP-поднятие за Stars</span>
+                    </div>
+                    <a data-i18n="btn_order_buy_template" href="#contact" class="w-full text-center bg-gradient-success text-white font-bold text-xs py-3.5 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-95 transition-opacity mt-auto">
+                        Замовити / Купити шаблон
+                    </a>
+                </div>
+
+                <!-- Card 2 (Booking Bot) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group hover:border-indigo-500/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <span class="material-symbols-outlined text-2xl">calendar_month</span>
+                        </div>
+                        <h3 data-i18n="prod_booking_title" class="text-lg font-bold text-white">Бот запису клієнтів для б'юті-майстрів</h3>
+                    </div>
+                    <p data-i18n="prod_booking_desc" class="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                        Автоматизований запис клієнтів на процедури для салонів краси чи майстрів. Автоматичний підбір вільних віконців, знижки для лояльних клієнтів та повна інтеграція з Google Таблицями для зручного перегляду записів.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">📅 Слот-менеджер</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">📊 Google Sheets DB</span>
+                    </div>
+                    <a data-i18n="btn_buy_template" href="#contact" class="w-full text-center bg-gradient-success text-white font-bold text-xs py-3.5 rounded-xl hover:opacity-95 transition-opacity">
+                        Купити шаблон
+                    </a>
+                </div>
+
+                <!-- Card 3 (Real Estate CRM) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group hover:border-indigo-500/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <span class="material-symbols-outlined text-2xl">real_estate_agent</span>
+                        </div>
+                        <h3 data-i18n="prod_crm_title" class="text-lg font-bold text-white">CRM нерухомості для ріелторів</h3>
+                    </div>
+                    <p data-i18n="prod_crm_desc" class="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                        Потужний помічник для ріелторів. Дозволяє додавати об'єкти нерухомості з телефону, автоматично перевіряє фото через ШІ Gemini на наявність водяних знаків та сміття, конвертує ціни по курсу НБУ та веде клієнтську базу.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">🧠 Gemini ИИ</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">💵 Курсы Валют</span>
+                    </div>
+                    <a data-i18n="btn_buy_template" href="#contact" class="w-full text-center bg-gradient-success text-white font-bold text-xs py-3.5 rounded-xl hover:opacity-95 transition-opacity">
+                        Купити шаблон
+                    </a>
+                </div>
+
+                <!-- Card 4 (Librarian Gate) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full group hover:border-indigo-500/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <span class="material-symbols-outlined text-2xl">menu_book</span>
+                        </div>
+                        <h3 data-i18n="prod_lib_title" class="text-lg font-bold text-white">Бібліотекар (Digital Delivery)</h3>
+                    </div>
+                    <p data-i18n="prod_lib_desc" class="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                        Бот-дистриб'ютор цифрових товарів (книг, мануалів, кодів). Надійно блокує контент та видає його тільки за підписку на цільові канали спонсорів (збільшення аудиторії) або при оплаті через Telegram Stars.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">⭐️ Telegram Stars</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">📢 Проверка подписки</span>
+                    </div>
+                    <a data-i18n="btn_buy_template" href="#contact" class="w-full text-center bg-gradient-success text-white font-bold text-xs py-3.5 rounded-xl hover:opacity-95 transition-opacity">
+                        Купити шаблон
+                    </a>
+                </div>
+
+                <!-- Card 5 (Voice Widget - Desktop App) -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full lg:col-span-2 group hover:border-indigo-500/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <span class="material-symbols-outlined text-2xl">mic</span>
+                        </div>
+                        <h3 data-i18n="prod_voice_title" class="text-xl font-bold text-white">Voice Widget (Whisper Desktop App)</h3>
+                    </div>
+                    <p data-i18n="prod_voice_desc" class="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                        Зручний плаваючий віджет для операційної системи Windows. Дозволяє надиктовувати текст голосом у будь-яке активне текстове поле на ПК. Використовує надшвидкий Groq Whisper API, розпізнає мову зі 100% точністю та автоматично виправляє пунктуацію.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">💻 Десктоп Windows</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">🎙️ Groq Whisper</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">⚡ Мгновенный ввод</span>
+                    </div>
+                    <a data-i18n="btn_buy_template" href="#contact" class="w-full lg:w-auto bg-gradient-success text-white font-bold text-xs py-3.5 px-8 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-95 transition-opacity mt-auto inline-block text-center">
+                        Купити шаблон
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Interactive Simulator Section -->
+        <section class="py-section-padding border-t border-zinc-900" id="demo">
+            <div class="text-center mb-16">
+                <h2 data-i18n="demo_title" class="text-3xl font-bold text-white mb-4">Спробуйте ботів у дії</h2>
+                <p data-i18n="demo_subtitle" class="text-zinc-400 max-w-2xl mx-auto text-sm">Клікніть на вкладку справа та протестуйте сценарій реального діалогу в симуляторі смартфона.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
+                <!-- Phone Mockup Container -->
+                <div class="phone-mockup w-[320px] h-[580px] flex flex-col shadow-2xl relative z-10 border border-zinc-800">
+                    <!-- Top Phone Status bar / Notch area spacer -->
+                    <div class="h-6 w-full bg-zinc-950 flex items-center justify-between px-6 pt-1 text-[10px] text-zinc-500 font-semibold select-none">
+                        <span>9:41</span>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px]">signal_cellular_alt</span>
+                            <span class="material-symbols-outlined text-[12px]">wifi</span>
+                            <span class="material-symbols-outlined text-[12px]">battery_full</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Telegram App Header inside phone -->
+                    <div class="bg-zinc-950/90 border-b border-zinc-900/80 px-4 py-3 flex items-center gap-3 backdrop-blur-md">
+                        <!-- Bot Avatar -->
+                        <div class="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold shadow-md">
+                            <span class="material-symbols-outlined text-xl">smart_toy</span>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="font-bold text-white text-sm truncate" id="phone-header-title">Booking Bot 💅</div>
+                            <div class="text-xs text-zinc-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                                <span id="phone-header-status">bot assistant</span>
+                            </div>
+                        </div>
+                        <button class="text-zinc-400 hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-xl">more_vert</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Chat Messages Area -->
+                    <div class="flex-grow overflow-y-auto p-4 bg-zinc-950/40 scrollbar-none" id="chat-container">
+                        <!-- Messages will be injected by main.js -->
+                    </div>
+                    
+                    <!-- Bottom Input/Keyboard Area -->
+                    <div class="bg-zinc-950/90 border-t border-zinc-900/80 p-3 flex flex-col gap-2">
+                        <!-- Inline Keyboard Buttons container -->
+                        <div id="chat-keyboard" class="w-full flex flex-col gap-1.5">
+                            <!-- Buttons injected by main.js -->
+                        </div>
+                        
+                        <!-- Input Bar mockup -->
+                        <div class="flex items-center gap-2 mt-1 select-none">
+                            <span class="material-symbols-outlined text-zinc-500 text-lg hover:text-zinc-400 cursor-pointer">attach_file</span>
+                            <div class="flex-grow bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 text-xs text-zinc-500 flex items-center justify-between">
+                                <span>Message...</span>
+                                <span class="material-symbols-outlined text-zinc-500 text-sm">face</span>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white">
+                                <span class="material-symbols-outlined text-base">mic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls Column -->
+                <div class="flex flex-col gap-4 w-full max-w-md">
+                    <button class="demo-tab text-left px-6 py-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/60 transition-all flex items-start gap-4 active:scale-98" data-bot="zapisukha">
+                        <span class="material-symbols-outlined text-indigo-400 text-3xl">calendar_month</span>
+                        <div>
+                            <h4 data-i18n="prod_booking_title" class="text-white font-bold text-sm mb-1">Бот запису клієнтів для б'юті-майстрів</h4>
+                            <p data-i18n="demo_booking_tab_desc" class="text-zinc-400 text-xs leading-relaxed">Симуляція запису клієнта на манікюр із підтвердженням за номером телефону та розрахунком ціни.</p>
+                        </div>
+                    </button>
+                    
+                    <button class="demo-tab text-left px-6 py-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/60 transition-all flex items-start gap-4 active:scale-98" data-bot="mriya">
+                        <span class="material-symbols-outlined text-indigo-400 text-3xl">real_estate_agent</span>
+                        <div>
+                            <h4 data-i18n="prod_crm_title" class="text-white font-bold text-sm mb-1">CRM нерухомості для ріелторів</h4>
+                            <p data-i18n="demo_crm_tab_desc" class="text-zinc-400 text-xs leading-relaxed">Процес додавання квартири продавцем з автоматичною модерацією фото через Gemini та валютною автоконвертацією.</p>
+                        </div>
+                    </button>
+                    
+                    <button class="demo-tab text-left px-6 py-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/60 transition-all flex items-start gap-4 active:scale-98" data-bot="librarian">
+                        <span class="material-symbols-outlined text-indigo-400 text-3xl">menu_book</span>
+                        <div>
+                            <h4 data-i18n="prod_lib_title" class="text-white font-bold text-sm mb-1">Бібліотекар (Видача файлів)</h4>
+                            <p data-i18n="demo_lib_tab_desc" class="text-zinc-400 text-xs leading-relaxed">Воронка підписки на канали спонсорів або миттєва купівня книги за Telegram Stars (зірки).</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Pricing Plan Comparison Table -->
+        <section class="py-section-padding border-t border-zinc-900" id="pricing">
+            <div class="text-center mb-16">
+                <h2 data-i18n="pricing_title" class="text-3xl font-bold text-white mb-4">Гнучкі тарифи під ваші цілі</h2>
+                <p data-i18n="pricing_subtitle" class="text-zinc-400 max-w-2xl mx-auto text-sm">Оберіть рівень автоматизації, який найкраще підходить для вашого проекту чи бізнесу.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Tier 1 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col border border-zinc-800 group hover:border-zinc-700 transition-all">
+                    <h3 data-i18n="price_self_title" class="text-zinc-400 font-bold text-sm uppercase tracking-wider mb-2">Тариф «Шаблон»</h3>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span data-i18n="price_self_price_val" class="text-white font-bold text-4xl">$49</span>
+                        <span data-i18n="price_once" class="text-zinc-500 text-sm">/ одноразово</span>
+                    </div>
+                    <p data-i18n="price_self_desc" class="text-zinc-400 text-sm mb-8 leading-relaxed">Отримайте чистий вихідний код бота з детальними інструкціями для самостійного налаштування. Підходить для розробників.</p>
+                    <ul class="flex flex-col gap-3.5 mb-8 text-zinc-300 text-sm flex-grow">
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_code">Повний вихідний код (Clean Python)</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_db">Шаблон бази Google Sheets / SQLite</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_i18n">Мультиязичность и локализация</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 text-zinc-700">
+                            <span class="material-symbols-outlined text-zinc-700 text-lg">cancel</span>
+                            <span data-i18n="pricing_li_no_setup">Налаштування API та серверів</span>
+                        </li>
+                    </ul>
+                    <a data-i18n="btn_buy_template" href="#contact" class="w-full text-center bg-zinc-850 hover:bg-zinc-800 border border-zinc-750 text-white font-semibold text-xs py-3.5 rounded-xl transition-all">Купити шаблон</a>
+                </div>
+                
+                <!-- Tier 2 (Featured) -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col border-2 border-indigo-500/50 shadow-[0_0_40px_rgba(99,102,241,0.15)] relative transform md:-translate-y-2 z-10 group transition-all">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-indigo-500 text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">Популярний</div>
+                    <h3 data-i18n="price_turnkey_title" class="text-indigo-300 font-bold text-sm uppercase tracking-wider mb-2">Тариф «Під ключ»</h3>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span data-i18n="price_turnkey_price_val" class="text-white font-bold text-4xl">$149</span>
+                        <span data-i18n="price_once" class="text-zinc-500 text-sm">/ одноразово</span>
+                    </div>
+                    <p data-i18n="price_turnkey_desc" class="text-zinc-300 text-sm mb-8 leading-relaxed">Ми повністю налаштуємо бота під ваші вимоги, зареєструємо його на серверах Railway чи VPS, приєднаємо ваші API ключі та Google Таблиці.</p>
+                    <ul class="flex flex-col gap-3.5 mb-8 text-zinc-200 text-sm flex-grow">
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_all_template">Усе з тарифу «Шаблон»</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_deploy">Деплой бота на сервер хостингу</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_api">Приєднання API (Gemini/Groq)</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_google_api">Налаштування Google Service Account</span>
+                        </li>
+                    </ul>
+                    <a data-i18n="price_turnkey_btn" href="#contact" class="w-full text-center bg-gradient-primary text-white font-bold text-xs py-3.5 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-all">Замовити під ключ</a>
+                </div>
+                
+                <!-- Tier 3 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col border border-zinc-800 group hover:border-zinc-700 transition-all">
+                    <h3 data-i18n="price_sub_title" class="text-zinc-400 font-bold text-sm uppercase tracking-wider mb-2">Тариф «Обслуговування»</h3>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span data-i18n="price_sub_price_val" class="text-white font-bold text-4xl">$25</span>
+                        <span data-i18n="price_monthly" class="text-zinc-500 text-sm">/ місяць</span>
+                    </div>
+                    <p data-i18n="price_sub_desc" class="text-zinc-400 text-sm mb-8 leading-relaxed">Повний супровід вашого бота. Ми беремо на себе хостинг, щоденну перевірку працездатності, моніторинг логов та оновлення під зміни API Telegram.</p>
+                    <ul class="flex flex-col gap-3.5 mb-8 text-zinc-300 text-sm flex-grow">
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_hosting">Хостинг бота в хмарі включено</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_updates">Оновлення коду під зміни API Telegram</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_monitoring">Щоденний моніторинг логів та багів</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_support">24/7 технічна підтримка</span>
+                        </li>
+                    </ul>
+                    <a data-i18n="price_sub_btn" href="#contact" class="w-full text-center bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-semibold text-xs py-3.5 rounded-xl transition-all">Підписатися</a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-zinc-400 text-xs flex items-center justify-center gap-1.5 opacity-80">
+                <span class="material-symbols-outlined text-sm">payments</span>
+                <span data-i18n="pricing_payment_methods">Приймаємо до оплати: Visa/Mastercard, Криптовалюту (USDT, TON, BTC) та Telegram Stars ⭐️</span>
+            </div>
+        </section>
+
+        <!-- 6. Contact Form Section -->
+        <section class="py-section-padding border-t border-zinc-900" id="contact">
+            <div class="max-w-xl mx-auto glass-card rounded-2xl p-8 border border-zinc-800 relative shadow-2xl">
+                <div class="text-center mb-8">
+                    <h2 data-i18n="contact_title" class="text-3xl font-bold text-white mb-2">Залишити заявку</h2>
+                    <p data-i18n="contact_subtitle" class="text-zinc-400 text-sm">Заповніть форму, і ми зв'яжемося з вами в Telegram протягом 30 хвилин.</p>
+                </div>
+                
+                 <form id="contact-form" class="flex flex-col gap-5">
+                    <div class="flex flex-col gap-2">
+                        <label data-i18n="form_name_label" class="text-zinc-300 text-xs font-semibold" for="client-name">Ваше ім'я</label>
+                        <input class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:border-indigo-500 focus:outline-none transition-colors" id="client-name" placeholder="Іван Іванов" required type="text">
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <label data-i18n="form_tg_label" class="text-zinc-300 text-xs font-semibold" for="client-username">Username у Telegram</label>
+                        <input class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:border-indigo-500 focus:outline-none transition-colors" id="client-username" placeholder="@username" required type="text">
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <label data-i18n="form_bot_label" class="text-zinc-300 text-xs font-semibold" for="client-bot">Який бот вас цікавить?</label>
+                        <select class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:border-indigo-500 focus:outline-none transition-colors" id="client-bot">
+                            <option value="barakholka">Барахолка (локальний маркетплейс / аналог OLX)</option>
+                            <option value="zapisukha">Бот запису для б'юті-майстрів</option>
+                            <option value="mriya">CRM нерухомості для ріелторів</option>
+                            <option value="librarian">Бібліотекар (видача файлів)</option>
+                            <option value="voice">Voice Widget (десктопний віджет)</option>
+                            <option value="custom">Кастомний бот під ключ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <label data-i18n="form_tariff_label" class="text-zinc-300 text-xs font-semibold" for="client-tier">Оберіть тариф</label>
+                        <select class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm focus:border-indigo-500 focus:outline-none transition-colors" id="client-tier">
+                            <option value="template">Купити тільки шаблон ($49)</option>
+                            <option value="turnkey">Встановлення під ключ ($149)</option>
+                            <option value="maintenance">Під ключ + Обслуговування ($149 + $25/міс)</option>
+                        </select>
+                    </div>
+                    
+                    <button data-i18n="form_submit" class="w-full bg-gradient-primary text-white font-bold text-xs py-4 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity mt-4" type="submit">
+                        Надіслати запит
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. Footer -->
+    <footer class="full-width bottom-0 bg-zinc-950 border-t border-zinc-900">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto gap-4">
+            <div class="font-headline-lg text-lg font-bold text-white">
+                Nova Bots
+            </div>
+            <div data-i18n="footer_copy" class="text-zinc-500 text-xs">
+                © 2026 Nova Bots. Створено з розумом.
+            </div>
+            <nav class="flex gap-6">
+                <a data-i18n="footer_privacy" class="text-zinc-500 text-xs hover:text-white transition-colors" href="#">Конфіденційність</a>
+                <a data-i18n="footer_terms" class="text-zinc-500 text-xs hover:text-white transition-colors" href="#">Умови</a>
+                <a data-i18n="footer_contact" class="text-zinc-500 text-xs hover:text-white transition-colors" href="#">Контакти</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- 8. Payment Modal -->
+    <div id="payment-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
+        <div class="glass-panel max-w-md w-full rounded-3xl p-6 relative flex flex-col gap-6 shadow-2xl border border-zinc-800 text-white animate-[fadeIn_0.3s_ease-out]">
+            <!-- Close Button -->
+            <button id="close-payment-modal" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <!-- Header -->
+            <div class="flex flex-col gap-1">
+                <h3 id="pay-title" data-i18n="pay_modal_title" class="text-xl font-bold tracking-tight">Оплата замовлення</h3>
+                <p id="pay-subtitle" data-i18n="pay_modal_subtitle" class="text-zinc-450 text-xs">Оберіть зручний спосіб оплати нижче. Після транзакції надішліть скріншот підтримці.</p>
+            </div>
+
+            <!-- Price Detail Box -->
+            <div class="bg-zinc-900/60 border border-zinc-850 rounded-2xl p-4 flex justify-between items-center">
+                <div class="flex flex-col gap-0.5">
+                    <span class="text-zinc-500 text-[10px] uppercase tracking-wider font-semibold" data-i18n="pay_order_details">Обраний тариф</span>
+                    <span id="payment-selected-tariff" class="text-white text-sm font-bold">Встановлення під ключ (Барахолка)</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-zinc-500 text-[10px] uppercase tracking-wider font-semibold block" data-i18n="pay_amount">Сума</span>
+                    <span id="payment-selected-price" class="text-indigo-400 text-lg font-bold">$149</span>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="grid grid-cols-2 gap-2 p-1 bg-zinc-900/80 rounded-xl border border-zinc-850">
+                <button id="tab-crypto" class="py-2.5 rounded-lg text-xs font-semibold bg-indigo-500/20 text-white border border-indigo-500/30 transition-all flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px]">currency_bitcoin</span>
+                    <span data-i18n="pay_method_crypto">Криптовалюта</span>
+                </button>
+                <button id="tab-card" class="py-2.5 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white transition-all flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px]">credit_card</span>
+                    <span data-i18n="pay_method_card">Банківська карта</span>
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex flex-col gap-4">
+                <!-- Crypto Options Panel -->
+                <div id="panel-crypto" class="flex flex-col gap-4">
+                    <!-- Coin Selector Buttons -->
+                    <div class="grid grid-cols-3 gap-2">
+                        <button id="coin-usdt" class="py-2 rounded-lg text-xs font-bold bg-indigo-500/20 text-white border border-indigo-500/30 flex flex-col items-center gap-1">
+                            <span class="text-sm">USDT</span>
+                            <span class="text-[9px] text-zinc-400">TRC-20</span>
+                        </button>
+                        <button id="coin-ton" class="py-2 rounded-lg text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-850 hover:text-white flex flex-col items-center gap-1">
+                            <span class="text-sm">TON</span>
+                            <span class="text-[9px] text-zinc-450">The Open Network</span>
+                        </button>
+                        <button id="coin-btc" class="py-2 rounded-lg text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-850 hover:text-white flex flex-col items-center gap-1">
+                            <span class="text-sm">BTC</span>
+                            <span class="text-[9px] text-zinc-450">Bitcoin</span>
+                        </button>
+                    </div>
+
+                    <!-- Wallet Address display field -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-zinc-400 text-[10px] uppercase font-semibold tracking-wider" data-i18n="pay_wallet_addr">Адреса гаманця для оплати</label>
+                        <div class="flex gap-2">
+                            <input id="payment-wallet-address" type="text" readonly value="TY7n7P76SDFsd7sd8fsd8f7sdf78sdf7s8" class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2.5 text-xs text-white font-mono flex-grow focus:outline-none focus:border-zinc-800 select-all">
+                            <button id="copy-wallet-btn" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs px-4 rounded-xl border border-zinc-700 font-semibold transition-colors shrink-0 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                                <span data-i18n="pay_copy">Копіювати</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Warning -->
+                    <div class="text-[10px] text-amber-400/80 flex items-start gap-1 bg-amber-500/5 p-2.5 rounded-lg border border-amber-500/10">
+                        <span class="material-symbols-outlined text-sm shrink-0">warning</span>
+                        <span id="pay-network-warning" data-i18n="pay_network_warning">Надсилайте ТІЛЬКИ USDT у мережі TRC-20! Будь-яка інша мережа призведе до безповоротної втрати коштів.</span>
+                    </div>
+                </div>
+
+                <!-- Card Options Panel (Hidden by default) -->
+                <div id="panel-card" class="flex flex-col gap-4 hidden">
+                    <!-- Card Number -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-zinc-400 text-[10px] uppercase font-semibold tracking-wider" data-i18n="pay_card_num">Номер картки</label>
+                        <div class="flex gap-2">
+                            <input id="payment-card-number" type="text" readonly value="4111 2222 3333 4444" class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2.5 text-xs text-white font-mono flex-grow focus:outline-none focus:border-zinc-800 select-all">
+                            <button id="copy-card-btn" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs px-4 rounded-xl border border-zinc-700 font-semibold transition-colors shrink-0 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                                <span data-i18n="pay_copy">Копіювати</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recipient Info -->
+                    <div class="flex flex-col gap-1 bg-zinc-900/40 p-3 rounded-xl border border-zinc-850">
+                        <span class="text-zinc-500 text-[10px] uppercase tracking-wider font-semibold" data-i18n="pay_card_holder">Банк / Отримувач</span>
+                        <span class="text-white text-xs font-semibold" data-i18n="pay_card_holder_val">Mono (ФОП Фролов О.В.)</span>
+                    </div>
+
+                    <!-- Card Info Note -->
+                    <div class="text-[10px] text-zinc-400 flex items-start gap-1 bg-white/5 p-2.5 rounded-lg border border-white/5">
+                        <span class="material-symbols-outlined text-sm shrink-0">info</span>
+                        <span data-i18n="pay_card_note">Будь ласка, переказуйте точну суму. Зарахування відбудеться автоматично після підтвердження від менеджера.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Confirm button -->
+            <button id="btn-confirm-payment" class="w-full bg-gradient-primary text-white font-bold text-xs py-4 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[16px]">send</span>
+                <span data-i18n="pay_confirm_btn">Я сплатив (Підтвердити в Telegram)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Connect Phone Simulator Logic -->
+    <script src="js/main.js"></script>
+</body>
+</html>
