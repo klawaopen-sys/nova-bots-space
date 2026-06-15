@@ -195,7 +195,7 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Конфіденційність",
         "footer_terms": "Умови",
         "footer_contact": "Контакти",
-        "pricing_payment_methods": "Приймаємо до оплати: Visa/Mastercard, Криптовалюту (USDT, TON, BTC) та Telegram Stars ⭐️",
+        "pricing_payment_methods": "Приймаємо до оплати: Visa/Mastercard, Криптовалюту (USDT, TON, USDC) та Telegram Stars ⭐️",
         "pay_modal_title": "Оплата замовлення",
         "pay_modal_subtitle": "Оберіть зручний спосіб оплати нижче. Після транзакції надішліть скріншот підтримці.",
         "pay_order_details": "Обраний тариф",
@@ -208,7 +208,7 @@ const PAGE_TRANSLATIONS = {
         "pay_network_warning": "Надсилайте ТІЛЬКИ <b>[TOKEN]</b> у мережі <b>[NETWORK]</b>! Будь-яка інша мережа призведе до безповоротної втрати коштів.",
         "pay_card_num": "Номер картки",
         "pay_card_holder": "Банк / Отримувач",
-        "pay_card_holder_val": "Mono (ФОП Фролов О.В.)",
+        "pay_card_holder_val": "Mastercard (США 🇺🇸)",
         "pay_card_note": "Будь ласка, переказуйте точну суму. Зарахування відбудеться автоматично після підтвердження від менеджера.",
         "pay_confirm_btn": "Я сплатив (Підтвердити в Telegram)"
     },
@@ -295,7 +295,7 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Конфиденциальность",
         "footer_terms": "Условия",
         "footer_contact": "Контакты",
-        "pricing_payment_methods": "Принимаем к оплате: Visa/Mastercard, Криптовалюту (USDT, TON, BTC) и Telegram Stars ⭐️",
+        "pricing_payment_methods": "Принимаем к оплате: Visa/Mastercard, Криптовалюту (USDT, TON, USDC) и Telegram Stars ⭐️",
         "pay_modal_title": "Оплата заказа",
         "pay_modal_subtitle": "Выберите удобный способ оплаты ниже. После транзакции отправьте скриншот поддержке.",
         "pay_order_details": "Выбранный тариф",
@@ -308,7 +308,7 @@ const PAGE_TRANSLATIONS = {
         "pay_network_warning": "Отправляйте ТОЛЬКО <b>[TOKEN]</b> в сети <b>[NETWORK]</b>! Любая другая сеть приведет к безвозвратной потере средств.",
         "pay_card_num": "Номер карты",
         "pay_card_holder": "Банк / Получатель",
-        "pay_card_holder_val": "Mono (ФЛП Фролов А.В.)",
+        "pay_card_holder_val": "Mastercard (США 🇺🇸)",
         "pay_card_note": "Пожалуйста, переводите точную сумму. Зачисление произойдет автоматически после подтверждения менеджером.",
         "pay_confirm_btn": "Я оплатил (Подтвердить в Telegram)"
     },
@@ -395,7 +395,7 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Privacy Policy",
         "footer_terms": "Terms & Conditions",
         "footer_contact": "Contacts",
-        "pricing_payment_methods": "We accept: Visa/Mastercard, Cryptocurrencies (USDT, TON, BTC) & Telegram Stars ⭐️",
+        "pricing_payment_methods": "We accept: Visa/Mastercard, Cryptocurrencies (USDT, TON, USDC) & Telegram Stars ⭐️",
         "pay_modal_title": "Order Payment",
         "pay_modal_subtitle": "Choose a convenient payment method below. Send a screenshot to support after transaction.",
         "pay_order_details": "Selected Plan",
@@ -408,7 +408,7 @@ const PAGE_TRANSLATIONS = {
         "pay_network_warning": "Send ONLY <b>[TOKEN]</b> on <b>[NETWORK]</b> network! Any other network will result in permanent loss of funds.",
         "pay_card_num": "Card Number",
         "pay_card_holder": "Bank / Recipient",
-        "pay_card_holder_val": "Mono (PE Frolov O.V.)",
+        "pay_card_holder_val": "Mastercard (USA 🇺🇸)",
         "pay_card_note": "Please transfer the exact amount. Verification will complete automatically once approved by our manager.",
         "pay_confirm_btn": "I have paid (Confirm in Telegram)"
     }
@@ -865,14 +865,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Coins selectors
     const coinUsdt = document.getElementById('coin-usdt');
     const coinTon = document.getElementById('coin-ton');
-    const coinBtc = document.getElementById('coin-btc');
+    const coinUsdc = document.getElementById('coin-usdc');
     const walletAddressInput = document.getElementById('payment-wallet-address');
     const warningSpan = document.getElementById('pay-network-warning');
     
     const wallets = {
-        usdt: { address: 'TY7n7P76SDFsd7sd8fsd8f7sdf78sdf7s8', token: 'USDT', network: 'TRC-20' },
+        usdt: { address: 'TLoAPxauhpBxocFNTNYE1tK6QEXQywnxkH', token: 'USDT', network: 'TRC-20' },
         ton: { address: 'UQAsd8fjKj32lKsa89da-Kjasd89jasdK89asdkj9as8djas', token: 'TON', network: 'TON (The Open Network)' },
-        btc: { address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', token: 'BTC', network: 'Bitcoin' }
+        usdc: { address: '0x0c7fd4021865b2241b8e18c7d29dba340230138f', token: 'USDC', network: 'ERC-20' }
     };
     
     window.selectCoin = function(coinKey) {
@@ -880,7 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!coin) return;
         walletAddressInput.value = coin.address;
         
-        [coinUsdt, coinTon, coinBtc].forEach(btn => {
+        [coinUsdt, coinTon, coinUsdc].forEach(btn => {
             if (btn) btn.className = "py-2 rounded-lg text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-850 hover:text-white flex flex-col items-center gap-1";
         });
         const activeBtn = document.getElementById(`coin-${coinKey}`);
@@ -894,10 +894,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (warningSpan) warningSpan.innerHTML = warningText;
     };
     
-    if (coinUsdt && coinTon && coinBtc) {
+    if (coinUsdt && coinTon && coinUsdc) {
         coinUsdt.onclick = () => selectCoin('usdt');
         coinTon.onclick = () => selectCoin('ton');
-        coinBtc.onclick = () => selectCoin('btc');
+        coinUsdc.onclick = () => selectCoin('usdc');
     }
 
     // Copy handlers
