@@ -137,6 +137,8 @@ const PAGE_TRANSLATIONS = {
         "prod_voice_title": "Voice Widget (Desktop App)",
         "prod_voice_desc": "Зручний плаваючий віджет для будь-якого комп'ютера (Windows, macOS, Linux). Дозволяє надиктовувати текст голосом у будь-яке активне текстове поле на ПК. Підтримує підключення будь-яких ШІ-моделей розпізнавання мови.<br><br>💡 <b>Як отримати:</b><br>• Придбати окремо за <b>$1</b><br>• Отримати <b>безкоштовно</b> за підписку на наші канали: <a href='https://t.me/cem_copok' class='text-indigo-400 hover:underline' target='_blank'>Сім сорок</a>, <a href='https://t.me/ncux_olo_guY' class='text-indigo-400 hover:underline' target='_blank'>Психологія</a>, <a href='https://t.me/te_shoo_treba' class='text-indigo-400 hover:underline' target='_blank'>Те що треба</a><br>• Отримати <b>в подарунок</b> при замовленні будь-якого бота «Під ключ»!",
         "btn_voice_gift": "Придбати ($1) / Отримати",
+        "btn_voice_buy_1": "Придбати за $1",
+        "btn_voice_free": "Отримати безкоштовно",
         "btn_buy_template": "Купити шаблон",
         "btn_order_buy_template": "Замовити / Купити шаблон",
         
@@ -173,6 +175,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_api": "Приєднання API (Gemini/Groq)",
         "pricing_li_google_api": "Налаштування Google Service Account",
         "pricing_li_voice_gift": "🎁 ПОДАРУНОК: Voice Widget у комплекті!",
+        "pricing_li_free_month": "🔥 1-й місяць обслуговування БЕЗКОШТОВНО!",
         "pricing_li_hosting": "Хостинг бота в хмарі включено",
         "pricing_li_updates": "Оновлення коду під зміни API Telegram",
         "pricing_li_monitoring": "Щоденний моніторинг логів та багів",
@@ -234,6 +237,8 @@ const PAGE_TRANSLATIONS = {
         "prod_voice_title": "Voice Widget (Desktop App)",
         "prod_voice_desc": "Удобный плавающий виджет для любого компьютера (Windows, macOS, Linux). Позволяет надиктовывать текст голосом в любое активное текстовое поле на ПК. Поддерживает подключение любых ИИ-моделей распознавания речи.<br><br>💡 <b>Как получить:</b><br>• Купить отдельно за <b>$1</b><br>• Получить <b>бесплатно</b> за подписку на наши каналы: <a href='https://t.me/cem_copok' class='text-indigo-400 hover:underline' target='_blank'>Семь сорок</a>, <a href='https://t.me/ncux_olo_guY' class='text-indigo-400 hover:underline' target='_blank'>Психология</a>, <a href='https://t.me/te_shoo_treba' class='text-indigo-400 hover:underline' target='_blank'>Те что надо</a><br>• Получить <b>в подарок</b> при заказе любого бота «Под ключ»!",
         "btn_voice_gift": "Купить ($1) / Получить",
+        "btn_voice_buy_1": "Купить за $1",
+        "btn_voice_free": "Получить бесплатно",
         "btn_buy_template": "Купить шаблон",
         "btn_order_buy_template": "Заказать / Купить шаблон",
         
@@ -270,6 +275,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_api": "Подключение API (Gemini/Groq)",
         "pricing_li_google_api": "Настройка Google Service Account",
         "pricing_li_voice_gift": "🎁 ПОДАРОК: Voice Widget в комплекте!",
+        "pricing_li_free_month": "🔥 1-й месяц обслуживания БЕСПЛАТНО!",
         "pricing_li_hosting": "Hosting бота в облаке включен",
         "pricing_li_updates": "Обновление кода под изменения API Telegram",
         "pricing_li_monitoring": "Ежедневный мониторинг логов и багов",
@@ -331,6 +337,8 @@ const PAGE_TRANSLATIONS = {
         "prod_voice_title": "Voice Widget (Desktop App)",
         "prod_voice_desc": "Convenient floating widget for any desktop system (Windows, macOS, Linux). Dictate text with your voice into any active text field on your computer. Supports integration with any speech-to-text models.<br><br>💡 <b>How to get:</b><br>• Purchase separately for <b>$1</b><br>• Get for <b>free</b> by subscribing to our channels: <a href='https://t.me/cem_copok' class='text-indigo-400 hover:underline' target='_blank'>Seven Forty</a>, <a href='https://t.me/ncux_olo_guY' class='text-indigo-400 hover:underline' target='_blank'>Psychology</a>, <a href='https://t.me/te_shoo_treba' class='text-indigo-400 hover:underline' target='_blank'>Te Shoo Treba</a><br>• Get as a <b>gift</b> when ordering any 'Turnkey' bot!",
         "btn_voice_gift": "Buy ($1) / Get Free",
+        "btn_voice_buy_1": "Buy for $1",
+        "btn_voice_free": "Get for Free",
         "btn_buy_template": "Buy Template",
         "btn_order_buy_template": "Buy / Order Template",
         
@@ -367,6 +375,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_api": "Gemini & Groq API key bindings",
         "pricing_li_google_api": "Google Cloud Service Account setup",
         "pricing_li_voice_gift": "🎁 GIFT: Voice Widget included!",
+        "pricing_li_free_month": "🔥 1st month of maintenance for FREE!",
         "pricing_li_hosting": "Cloud hosting costs included",
         "pricing_li_updates": "Proactive API adaptation updates",
         "pricing_li_monitoring": "Daily log monitoring & bugfixes",
@@ -923,6 +932,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = encodeURIComponent(`Привіт! Я оплатив замовлення:\nТариф: ${plan}\nСума: ${price}`);
             window.open(`https://t.me/nova_bots_support?text=${message}`, '_blank');
             document.getElementById('payment-modal').classList.add('hidden');
+        };
+    }
+
+    // Voice Widget direct buy button
+    const btnBuyVoice = document.getElementById('btn-buy-voice');
+    if (btnBuyVoice) {
+        btnBuyVoice.onclick = () => {
+            let widgetName = 'Voice Widget (Desktop App)';
+            if (currentLang === 'uk') widgetName = 'Voice Widget (Десктопний віджет)';
+            else if (currentLang === 'ru') widgetName = 'Voice Widget (Десктопный виджет)';
+            
+            document.getElementById('payment-selected-tariff').innerText = widgetName;
+            document.getElementById('payment-selected-price').innerText = '$1';
+            
+            selectCoin('usdt');
+            
+            const modal = document.getElementById('payment-modal');
+            if (modal) modal.classList.remove('hidden');
         };
     }
 });

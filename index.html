@@ -336,9 +336,15 @@
                         <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">🎙️ Мультимодельний</span>
                         <span class="bg-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-lg border border-zinc-700">⚡ Миттєве введення</span>
                     </div>
-                    <a data-i18n="btn_voice_gift" href="#contact" class="w-full lg:w-auto bg-gradient-success text-white font-bold text-xs py-3.5 px-8 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-95 transition-opacity mt-auto inline-block text-center">
-                        Отримати в подарунок
-                    </a>
+                    <div class="flex flex-col sm:flex-row gap-3 mt-auto w-full">
+                        <button id="btn-buy-voice" class="flex-1 bg-gradient-success text-white font-bold text-xs py-3.5 px-6 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-95 transition-opacity text-center">
+                            <span data-i18n="btn_voice_buy_1">Купити за $1</span>
+                        </button>
+                        <a href="https://t.me/librar_ian_bot" target="_blank" class="flex-1 bg-zinc-850 border border-zinc-750 text-white font-bold text-xs py-3.5 px-6 rounded-xl hover:bg-zinc-800 hover:text-white transition-colors text-center flex items-center justify-center gap-1.5 no-underline">
+                            <span class="material-symbols-outlined text-[16px]">send</span>
+                            <span data-i18n="btn_voice_free">Отримати безкоштовно</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -502,6 +508,10 @@
                         <li class="flex items-center gap-2.5 font-semibold text-indigo-300">
                             <span class="material-symbols-outlined text-indigo-400 text-lg">featured_play_list</span>
                             <span data-i18n="pricing_li_voice_gift">🎁 ПОДАРУНОК: Voice Widget у комплекті!</span>
+                        </li>
+                        <li class="flex items-center gap-2.5 font-semibold text-emerald-300">
+                            <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                            <span data-i18n="pricing_li_free_month">🔥 1-й місяць обслуговування БЕЗКОШТОВНО!</span>
                         </li>
                     </ul>
                     <a data-i18n="price_turnkey_btn" href="#contact" class="w-full text-center bg-gradient-primary text-white font-bold text-xs py-3.5 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-all">Замовити під ключ</a>
