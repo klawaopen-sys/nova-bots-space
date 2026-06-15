@@ -817,7 +817,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Determine price
             let price = '$49';
             if (clientTierValue === 'turnkey') price = '$149';
-            else if (clientTierValue === 'maintenance') price = '$149 + $25/mo';
+            else if (clientTierValue === 'maintenance') price = '$15';
+            else if (clientTierValue === 'sync_template') price = '$79';
+            else if (clientTierValue === 'sync_turnkey') price = '$249';
             
             // Update modal text fields
             document.getElementById('payment-selected-tariff').innerText = `${clientBotName} (${clientTierText})`;
