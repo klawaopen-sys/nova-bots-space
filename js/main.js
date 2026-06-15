@@ -135,8 +135,8 @@ const PAGE_TRANSLATIONS = {
         "prod_lib_title": "Бібліотекар (Digital Delivery)",
         "prod_lib_desc": "Бот-дистриб'ютор цифрових товарів (книг, мануалів, кодів). Надійно блокує контент та видає його тільки за підписку на цільові канали спонсорів (збільшення аудиторії) або при оплаті через Telegram Stars.",
         "prod_voice_title": "Voice Widget (Whisper Desktop App)",
-        "prod_voice_desc": "Зручний плаваючий віджет для операційної системи Windows. Дозволяє надиктовувати текст голосом у будь-яке активне текстове поле на ПК. Використовує надшвидкий Groq Whisper API, розпізнає мову зі 100% точністю та автоматично виправляє пунктуацію.",
-        
+        "prod_voice_desc": "Зручний плаваючий віджет для Windows. Дозволяє надиктовувати текст голосом у будь-каке активне текстове поле на ПК. Використовує Groq Whisper API та автоматично розставляє розділові знаки. 🎁 Надається БЕЗКОШТОВНО за підписку на наші канали або як подарунок при замовленні будь-якого бота «Під ключ»!",
+        "btn_voice_gift": "Отримати в подарунок",
         "btn_buy_template": "Купити шаблон",
         "btn_order_buy_template": "Замовити / Купити шаблон",
         
@@ -171,6 +171,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_deploy": "Деплой бота на сервер хостингу",
         "pricing_li_api": "Приєднання API (Gemini/Groq)",
         "pricing_li_google_api": "Налаштування Google Service Account",
+        "pricing_li_voice_gift": "🎁 ПОДАРУНОК: Voice Widget у комплекті!",
         "pricing_li_hosting": "Хостинг бота в хмарі включено",
         "pricing_li_updates": "Оновлення коду під зміни API Telegram",
         "pricing_li_monitoring": "Щоденний моніторинг логів та багів",
@@ -230,8 +231,8 @@ const PAGE_TRANSLATIONS = {
         "prod_lib_title": "Библиотекарь (Digital Delivery)",
         "prod_lib_desc": "Бот-дистрибьютор цифровых товаров (книг, мануалов, кодов). Надежно блокирует контент и выдает его только за подписку на целевые каналы спонсоров (увеличение аудитории) или при оплате через Telegram Stars.",
         "prod_voice_title": "Voice Widget (Whisper Desktop App)",
-        "prod_voice_desc": "Удобный плавающий виджет для операционной системы Windows. Позволяет надиктовывать текст голосом в любое активное текстовое поле на ПК. Использует сверхбыстрый Groq Whisper API, распознает речь со 100% точностью и автоматически исправляет пунктуацию.",
-        
+        "prod_voice_desc": "Удобный плавающий виджет для Windows. Позволяет надиктовывать текст голосом в любое активное текстовое поле на ПК. Использует Groq Whisper API и автоматически расставляет знаки препинания. 🎁 Предоставляется БЕСПЛАТНО за подписку на наши каналы или в подарок при заказе любого бота «Под ключ»!",
+        "btn_voice_gift": "Получить в подарок",
         "btn_buy_template": "Купить шаблон",
         "btn_order_buy_template": "Заказать / Купить шаблон",
         
@@ -266,6 +267,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_deploy": "Деплой бота на сервер хостинга",
         "pricing_li_api": "Подключение API (Gemini/Groq)",
         "pricing_li_google_api": "Настройка Google Service Account",
+        "pricing_li_voice_gift": "🎁 ПОДАРОК: Voice Widget в комплекте!",
         "pricing_li_hosting": "Hosting бота в облаке включен",
         "pricing_li_updates": "Обновление кода под изменения API Telegram",
         "pricing_li_monitoring": "Ежедневный мониторинг логов и багов",
@@ -325,8 +327,8 @@ const PAGE_TRANSLATIONS = {
         "prod_lib_title": "Librarian (Digital Product File Delivery Bot)",
         "prod_lib_desc": "Lead generation bot and sales funnel. Protects digital download links for books or files. Users get the file for free after subscribing to partner sponsor channels or can purchase it instantly via 1-2 Telegram Stars.",
         "prod_voice_title": "Voice Widget (Whisper Desktop App)",
-        "prod_voice_desc": "Embeddable widget for web applications in vanilla JS. Allows users to fill out web forms using speech-to-text dictation via Whisper API. Simple one-line integration for any HTML landing or CRM.",
-        
+        "prod_voice_desc": "Convenient floating widget for Windows. Dictate text with your voice into any active text field on your PC using Groq Whisper API with automatic punctuation correction. 🎁 Available for FREE by subscribing to our channels or as a gift when ordering any 'Turnkey' bot!",
+        "btn_voice_gift": "Get as a Gift",
         "btn_buy_template": "Buy Template",
         "btn_order_buy_template": "Buy / Order Template",
         
@@ -361,6 +363,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_li_deploy": "Active deployment to cloud server",
         "pricing_li_api": "Gemini & Groq API key bindings",
         "pricing_li_google_api": "Google Cloud Service Account setup",
+        "pricing_li_voice_gift": "🎁 GIFT: Voice Widget included!",
         "pricing_li_hosting": "Cloud hosting costs included",
         "pricing_li_updates": "Proactive API adaptation updates",
         "pricing_li_monitoring": "Daily log monitoring & bugfixes",
