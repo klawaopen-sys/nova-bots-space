@@ -406,7 +406,7 @@ const PAGE_TRANSLATIONS = {
         "pricing_payment_methods": "We accept: Visa/Mastercard (via Mono Jar), Cryptocurrencies (USDT, USDC) & Telegram Stars ⭐️",
         "btn_pay_stars": "Pay with Stars",
         "btn_pay_card": "Pay by Card",
-        "btn_pay_crypto": "Pay with USDT / USDC",
+        "btn_pay_crypto": "Pay USDT / USDC",
         "pay_modal_title": "Order Payment",
         "pay_modal_subtitle": "Choose a convenient payment method below. Send a screenshot to support after transaction.",
         "pay_order_details": "Selected Plan",
