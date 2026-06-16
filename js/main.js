@@ -195,7 +195,10 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Конфіденційність",
         "footer_terms": "Умови",
         "footer_contact": "Контакти",
-        "pricing_payment_methods": "Приймаємо до оплати: Visa/Mastercard (через Банку Mono), Криптовалюту (USDT, TON, USDC) та Telegram Stars ⭐️",
+        "pricing_payment_methods": "Приймаємо до оплати: Visa/Mastercard (через Банку Mono), Криптовалюту (USDT, USDC) та Telegram Stars ⭐️",
+        "btn_pay_stars": "Сплатити зірками",
+        "btn_pay_card": "Сплатити карткою",
+        "btn_pay_crypto": "Сплатити USDT / USDC",
         "pay_modal_title": "Оплата замовлення",
         "pay_modal_subtitle": "Оберіть зручний спосіб оплати нижче. Після транзакції надішліть скріншот підтримці.",
         "pay_order_details": "Обраний тариф",
@@ -205,7 +208,7 @@ const PAGE_TRANSLATIONS = {
         "pay_wallet_addr": "Адреса гаманця для оплати",
         "pay_copy": "Копіювати",
         "pay_copied": "Скопійовано!",
-        "pay_network_warning": "Надсилайте ТІЛЬКИ <b>[TOKEN]</b> у мережі <b>[NETWORK]</b>! Будь-яка інша мережа призведе до безповоротної втрати коштів.",
+        "pay_network_warning_both": "Надсилайте ТІЛЬКИ <b>USDT</b> у мережі <b>TRC-20</b> або <b>USDC</b> у мережі <b>ERC-20</b>! Будь-яка інша мережа призведе до безповоротної втрати коштів.",
         "pay_card_num": "Номер картки Банки",
         "pay_card_holder": "Банк / Отримувач",
         "pay_card_holder_val": "Monobank (Банка: Nova Bots | Оплата)",
@@ -296,7 +299,10 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Конфиденциальность",
         "footer_terms": "Условия",
         "footer_contact": "Контакты",
-        "pricing_payment_methods": "Принимаем к оплате: Visa/Mastercard (через Банку Mono), Криптовалюту (USDT, TON, USDC) и Telegram Stars ⭐️",
+        "pricing_payment_methods": "Принимаем к оплате: Visa/Mastercard (через Банку Mono), Криптовалюту (USDT, USDC) и Telegram Stars ⭐️",
+        "btn_pay_stars": "Оплатить звездами",
+        "btn_pay_card": "Оплатить картой",
+        "btn_pay_crypto": "Оплатить USDT / USDC",
         "pay_modal_title": "Оплата заказа",
         "pay_modal_subtitle": "Выберите удобный способ оплаты ниже. После транзакции отправьте скриншот поддержке.",
         "pay_order_details": "Выбранный тариф",
@@ -306,7 +312,7 @@ const PAGE_TRANSLATIONS = {
         "pay_wallet_addr": "Адрес кошелька для оплаты",
         "pay_copy": "Копировать",
         "pay_copied": "Скопировано!",
-        "pay_network_warning": "Отправляйте ТОЛЬКО <b>[TOKEN]</b> в сети <b>[NETWORK]</b>! Любая другая сеть приведет к безвозвратной потере средств.",
+        "pay_network_warning_both": "Отправляйте ТОЛЬКО <b>USDT</b> в сети <b>TRC-20</b> или <b>USDC</b> в сети <b>ERC-20</b>! Любая другая сеть приведет к безвозвратной потере средств.",
         "pay_card_num": "Номер карты Банки",
         "pay_card_holder": "Банк / Получатель",
         "pay_card_holder_val": "Monobank (Банка: Nova Bots | Оплата)",
@@ -397,7 +403,10 @@ const PAGE_TRANSLATIONS = {
         "footer_privacy": "Privacy Policy",
         "footer_terms": "Terms & Conditions",
         "footer_contact": "Contacts",
-        "pricing_payment_methods": "We accept: Visa/Mastercard (via Mono Jar), Cryptocurrencies (USDT, TON, USDC) & Telegram Stars ⭐️",
+        "pricing_payment_methods": "We accept: Visa/Mastercard (via Mono Jar), Cryptocurrencies (USDT, USDC) & Telegram Stars ⭐️",
+        "btn_pay_stars": "Pay with Stars",
+        "btn_pay_card": "Pay by Card",
+        "btn_pay_crypto": "Pay with USDT / USDC",
         "pay_modal_title": "Order Payment",
         "pay_modal_subtitle": "Choose a convenient payment method below. Send a screenshot to support after transaction.",
         "pay_order_details": "Selected Plan",
@@ -407,7 +416,7 @@ const PAGE_TRANSLATIONS = {
         "pay_wallet_addr": "Wallet Address for Payment",
         "pay_copy": "Copy",
         "pay_copied": "Copied!",
-        "pay_network_warning": "Send ONLY <b>[TOKEN]</b> on <b>[NETWORK]</b> network! Any other network will result in permanent loss of funds.",
+        "pay_network_warning_both": "Send ONLY <b>USDT</b> on <b>TRC-20</b> network or <b>USDC</b> on <b>ERC-20</b> network! Any other network will result in permanent loss of funds.",
         "pay_card_num": "Jar Card Number",
         "pay_card_holder": "Bank / Recipient",
         "pay_card_holder_val": "Monobank (Jar: Nova Bots | Payment)",
@@ -800,42 +809,179 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start default scenario
     startScenario('zapisukha');
 
-    // Contact form submit logic
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.onsubmit = (e) => {
-            e.preventDefault();
-            
-            const clientName = document.getElementById('client-name').value;
-            const clientTg = document.getElementById('client-username').value;
-            const clientBotSelect = document.getElementById('client-bot');
-            const clientBotName = clientBotSelect.options[clientBotSelect.selectedIndex].text;
-            const clientTierSelect = document.getElementById('client-tier');
-            const clientTierValue = clientTierSelect.value;
-            const clientTierText = clientTierSelect.options[clientTierSelect.selectedIndex].text;
-            
-            // Determine price
-            let price = '$49';
-            if (clientTierValue === 'turnkey') price = '$149';
-            else if (clientTierValue === 'maintenance') price = '$15';
-            else if (clientTierValue === 'sync_template') price = '$79';
-            else if (clientTierValue === 'sync_turnkey') price = '$249';
-            
-            // Update modal text fields
-            document.getElementById('payment-selected-tariff').innerText = `${clientBotName} (${clientTierText})`;
-            document.getElementById('payment-selected-price').innerText = price;
-            
-            // Set default payment coin to USDT TRC-20
-            selectCoin('usdt');
-            
-            // Show modal
-            const modal = document.getElementById('payment-modal');
-            modal.classList.remove('hidden');
-            
-            // Clear form
-            contactForm.reset();
+    const clientBotSelect = document.getElementById('client-bot');
+    const clientTierSelect = document.getElementById('client-tier');
+    const btnPayStars = document.getElementById('btn-pay-stars');
+    const labelPayStars = document.getElementById('label-pay-stars');
+
+    const botNamesTrans = {
+        barakholka: { uk: 'Барахолка', ru: 'Барахолка', en: 'Flea Market' },
+        zapisukha: { uk: 'Бот запису для б\'юті', ru: 'Бот записи для бьюти', en: 'Beauty Booking Bot' },
+        mriya: { uk: 'CRM нерухомості', ru: 'CRM недвижимости', en: 'Real Estate CRM' },
+        librarian: { uk: 'Бібліотекар', ru: 'Библиотекарь', en: 'Librarian' },
+        voice: { uk: 'Voice Widget', ru: 'Voice Widget', en: 'Voice Widget' },
+        custom: { uk: 'Кастомний бот', ru: 'Кастомный бот', en: 'Custom Bot' }
+    };
+
+    const botMsgIds = {
+        zapisukha: 'zapisukha_34',
+        voice: 'voice_widget_35',
+        mriya: 'mriya_36',
+        barakholka: 'barakholka_37',
+        librarian: 'librarian_38'
+    };
+
+    function getStarsPrice(bot, tier) {
+        if (bot === 'voice') {
+            return 50;
+        }
+        if (tier === 'template') return 2500;
+        if (tier === 'sync_template') return 4000;
+        return 0; // Для інших тарифів Stars недоступні
+    }
+
+    function updatePaymentOptions() {
+        if (!clientBotSelect || !clientTierSelect || !btnPayStars) return;
+        const bot = clientBotSelect.value;
+        
+        // Для Voice Widget доступний тільки шаблон за $1 / 50 Stars
+        if (bot === 'voice') {
+            clientTierSelect.value = 'template';
+            for (let i = 1; i < clientTierSelect.options.length; i++) {
+                clientTierSelect.options[i].disabled = true;
+            }
+        } else {
+            for (let i = 0; i < clientTierSelect.options.length; i++) {
+                clientTierSelect.options[i].disabled = false;
+            }
+        }
+
+        const currentBot = clientBotSelect.value;
+        const currentTier = clientTierSelect.value;
+        const starsPrice = getStarsPrice(currentBot, currentTier);
+        const isStarsAvailable = starsPrice > 0 && botMsgIds[currentBot];
+
+        if (isStarsAvailable) {
+            btnPayStars.disabled = false;
+            btnPayStars.classList.remove('opacity-50', 'cursor-not-allowed');
+            if (labelPayStars) {
+                labelPayStars.innerText = (PAGE_TRANSLATIONS[currentLang]['btn_pay_stars'] || 'Сплатити зірками') + ` (${starsPrice} ⭐️)`;
+            }
+        } else {
+            btnPayStars.disabled = true;
+            btnPayStars.classList.add('opacity-50', 'cursor-not-allowed');
+            if (labelPayStars) {
+                labelPayStars.innerText = PAGE_TRANSLATIONS[currentLang]['btn_pay_stars'] || 'Сплатити зірками';
+            }
+        }
+    }
+
+    if (clientBotSelect && clientTierSelect) {
+        clientBotSelect.onchange = updatePaymentOptions;
+        clientTierSelect.onchange = updatePaymentOptions;
+    }
+
+    document.querySelectorAll('.btn-order').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const botKey = btn.dataset.bot;
+            if (botKey && clientBotSelect) {
+                // Встановлюємо значення
+                clientBotSelect.value = botKey;
+                
+                // Приховуємо вибір бота, якщо це конкретний бот (не custom)
+                const divClientBot = document.getElementById('div-client-bot');
+                if (divClientBot) {
+                    if (botKey === 'custom') {
+                        divClientBot.classList.remove('hidden');
+                    } else {
+                        divClientBot.classList.add('hidden');
+                    }
+                }
+
+                // Зміна заголовка форми замовлення
+                const contactTitle = document.getElementById('contact-form-title');
+                if (contactTitle) {
+                    const botName = botNamesTrans[botKey][currentLang] || botKey;
+                    contactTitle.innerText = `${PAGE_TRANSLATIONS[currentLang]['contact_title'] || 'Залишити заявку'}: ${botName}`;
+                }
+
+                updatePaymentOptions();
+            }
+        });
+    });
+
+    // Перевірка імені та телеграму
+    function validateClientData() {
+        const clientNameElement = document.getElementById('client-name');
+        const clientTgElement = document.getElementById('client-username');
+        if (!clientNameElement || !clientTgElement) return null;
+
+        const clientName = clientNameElement.value.trim();
+        const clientTg = clientTgElement.value.trim();
+        if (!clientName || !clientTg) {
+            alert(currentLang === 'uk' ? 'Будь ласка, заповніть Ваше ім\'я та Username у Telegram!' : 
+                  currentLang === 'ru' ? 'Пожалуйста, заполните Ваше имя и Username в Telegram!' :
+                  'Please fill in your Name and Telegram Username!');
+            return null;
+        }
+        return { name: clientName, tg: clientTg };
+    }
+
+    function getPriceUSD(bot, tier) {
+        if (bot === 'voice') return '\u00241';
+        if (tier === 'template') return '\u002449';
+        if (tier === 'turnkey') return '\u0024149';
+        if (tier === 'maintenance') return '\u002415';
+        if (tier === 'sync_template') return '\u002479';
+        if (tier === 'sync_turnkey') return '\u0024249';
+        return '\u002449';
+    }
+
+    // Кнопка оплати зірками Stars
+    if (btnPayStars) {
+        btnPayStars.onclick = () => {
+            if (!clientBotSelect) return;
+            const bot = clientBotSelect.value;
+            const startParam = botMsgIds[bot];
+            if (startParam) {
+                window.open(`https://t.me/librar_ian_bot?start=${startParam}`, '_blank');
+            }
         };
     }
+
+    // Відкриття модалки оплати
+    function openPaymentModal(method) {
+        const clientData = validateClientData();
+        if (!clientData) return;
+
+        if (!clientBotSelect || !clientTierSelect) return;
+        const bot = clientBotSelect.value;
+        const tier = clientTierSelect.value;
+        const botName = botNamesTrans[bot][currentLang] || bot;
+        const tierText = clientTierSelect.options[clientTierSelect.selectedIndex].text;
+        const price = getPriceUSD(bot, tier);
+
+        document.getElementById('payment-selected-tariff').innerText = `${botName} (${tierText})`;
+        document.getElementById('payment-selected-price').innerText = price;
+
+        const modal = document.getElementById('payment-modal');
+        modal.classList.remove('hidden');
+
+        // Перемикання на вкладку
+        if (method === 'card') {
+            const tabCardElement = document.getElementById('tab-card');
+            if (tabCardElement) tabCardElement.click();
+        } else {
+            const tabCryptoElement = document.getElementById('tab-crypto');
+            if (tabCryptoElement) tabCryptoElement.click();
+        }
+    }
+
+    const btnPayCard = document.getElementById('btn-pay-card');
+    if (btnPayCard) btnPayCard.onclick = () => openPaymentModal('card');
+
+    const btnPayCrypto = document.getElementById('btn-pay-crypto');
+    if (btnPayCrypto) btnPayCrypto.onclick = () => openPaymentModal('crypto');
 
     // Modal Close
     const closeModal = document.getElementById('close-payment-modal');
@@ -867,44 +1013,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Coins selectors
-    const coinUsdt = document.getElementById('coin-usdt');
-    const coinTon = document.getElementById('coin-ton');
-    const coinUsdc = document.getElementById('coin-usdc');
-    const walletAddressInput = document.getElementById('payment-wallet-address');
-    const warningSpan = document.getElementById('pay-network-warning');
-    
-    const wallets = {
-        usdt: { address: 'TLoAPxauhpBxocFNTNYE1tK6QEXQywnxkH', token: 'USDT', network: 'TRC-20' },
-        ton: { address: 'UQAsd8fjKj32lKsa89da-Kjasd89jasdK89asdkj9as8djas', token: 'TON', network: 'TON (The Open Network)' },
-        usdc: { address: '0x0c7fd4021865b2241b8e18c7d29dba340230138f', token: 'USDC', network: 'ERC-20' }
-    };
-    
-    window.selectCoin = function(coinKey) {
-        const coin = wallets[coinKey];
-        if (!coin) return;
-        walletAddressInput.value = coin.address;
-        
-        [coinUsdt, coinTon, coinUsdc].forEach(btn => {
-            if (btn) btn.className = "py-2 rounded-lg text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-850 hover:text-white flex flex-col items-center gap-1";
-        });
-        const activeBtn = document.getElementById(`coin-${coinKey}`);
-        if (activeBtn) activeBtn.className = "py-2 rounded-lg text-xs font-bold bg-indigo-500/20 text-white border border-indigo-500/30 flex flex-col items-center gap-1";
-        
-        const trans = PAGE_TRANSLATIONS[currentLang]['pay_network_warning'] || '';
-        let warningText = trans.replace('[TOKEN]', coin.token).replace('[NETWORK]', coin.network);
-        if (!warningText) {
-            warningText = `Send ONLY ${coin.token} on ${coin.network} network!`;
-        }
-        if (warningSpan) warningSpan.innerHTML = warningText;
-    };
-    
-    if (coinUsdt && coinTon && coinUsdc) {
-        coinUsdt.onclick = () => selectCoin('usdt');
-        coinTon.onclick = () => selectCoin('ton');
-        coinUsdc.onclick = () => selectCoin('usdc');
-    }
-
     // Copy handlers
     function setupCopyButton(btnId, inputId) {
         const btn = document.getElementById(btnId);
@@ -915,7 +1023,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 navigator.clipboard.writeText(input.value).then(() => {
                     const originalHtml = btn.innerHTML;
                     const copiedText = PAGE_TRANSLATIONS[currentLang]['pay_copied'] || 'Copied!';
-                    btn.innerHTML = `<span class="material-symbols-outlined text-[14px]">check</span><span>${copiedText}</span>`;
+                    
+                    const hasText = btn.innerText.trim().length > 0;
+                    if (hasText) {
+                        btn.innerHTML = `<span class="material-symbols-outlined text-[14px]">check</span><span>${copiedText}</span>`;
+                    } else {
+                        btn.innerHTML = `<span class="material-symbols-outlined text-[13px]">check</span>`;
+                    }
+                    
                     btn.classList.add('bg-emerald-600', 'border-emerald-500');
                     setTimeout(() => {
                         btn.innerHTML = originalHtml;
@@ -925,20 +1040,9 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
     }
-    setupCopyButton('copy-wallet-btn', 'payment-wallet-address');
+    setupCopyButton('copy-wallet-btn-usdt', 'payment-wallet-address-usdt');
+    setupCopyButton('copy-wallet-btn-usdc', 'payment-wallet-address-usdc');
     setupCopyButton('copy-card-btn', 'payment-card-number');
-
-    // Confirm logic
-    const btnConfirm = document.getElementById('btn-confirm-payment');
-    if (btnConfirm) {
-        btnConfirm.onclick = () => {
-            const plan = document.getElementById('payment-selected-tariff').innerText;
-            const price = document.getElementById('payment-selected-price').innerText;
-            const message = encodeURIComponent(`Привіт! Я оплатив замовлення:\nТариф: ${plan}\nСума: ${price}`);
-            window.open(`https://t.me/nova_bots_support?text=${message}`, '_blank');
-            document.getElementById('payment-modal').classList.add('hidden');
-        };
-    }
 
     // Voice Widget direct buy button
     const btnBuyVoice = document.getElementById('btn-buy-voice');
@@ -951,10 +1055,23 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('payment-selected-tariff').innerText = widgetName;
             document.getElementById('payment-selected-price').innerText = '$1';
             
-            selectCoin('usdt');
-            
             const modal = document.getElementById('payment-modal');
             if (modal) modal.classList.remove('hidden');
         };
     }
+
+    // Confirm logic
+    const btnConfirm = document.getElementById('btn-confirm-payment');
+    if (btnConfirm) {
+        btnConfirm.onclick = () => {
+            const plan = document.getElementById('payment-selected-tariff').innerText;
+            const price = document.getElementById('payment-selected-price').innerText;
+            const message = encodeURIComponent(`Привіт! Я оплатив замовлення:\nТариф: ${plan}\nСума: ${price}`);
+            window.open(`https://t.me/nova_bots_support?text=${message}`, '_blank');
+            document.getElementById('payment-modal').classList.add('hidden');
+        };
+    }
+    
+    // Initial call to set active styles & disabled states
+    updatePaymentOptions();
 });
