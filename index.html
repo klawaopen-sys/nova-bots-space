@@ -841,7 +841,7 @@
 
     <!-- View Constructor -->
     <div id="view-constructor" class="hidden w-full bg-slate-950" style="height: calc(100vh - 72px);">
-        <iframe src="constructor.html" class="w-full h-full border-0 block"></iframe>
+        <iframe src="constructor.html?v=2.5.1" class="w-full h-full border-0 block"></iframe>
     </div>
 
     <!-- Connect Phone Simulator Logic -->
@@ -882,6 +882,12 @@
                     viewHome.classList.add('hidden');
                     viewConstructor.classList.remove('hidden');
                     document.body.style.overflow = "hidden";
+                    
+                    // Route to constructor files tab directly if triggered from bot/hash link
+                    const iframe = viewConstructor.querySelector('iframe');
+                    if (iframe && window.location.hash === '#constructor') {
+                        iframe.src = "constructor.html?v=2.5.1#files";
+                    }
                 }
             }
         }
@@ -901,6 +907,21 @@
             switchMainTab(tab);
             toggleMobileMenu(false);
         }
+
+        // Hash routing for direct navigation from bot links
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash === '#constructor') {
+                switchMainTab('constructor');
+            } else if (window.location.hash === '#home' || window.location.hash === '') {
+                switchMainTab('home');
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#constructor') {
+                switchMainTab('constructor');
+            }
+        });
     </script>
 </body>
 </html>

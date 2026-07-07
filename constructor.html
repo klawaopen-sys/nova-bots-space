@@ -1265,7 +1265,17 @@ Ensure the final JSON returned conforms exactly to this JSON schema:
                 projectFiles["requirements.txt"].content = responseData.requirements_txt;
                 projectFiles["install_run.bat"].content = responseData.install_run_bat;
                 projectFiles["install_run.sh"].content = responseData.install_run_sh;
-                projectFiles["ІНСТРУКЦІЯ.txt"].content = responseData.README_txt;
+                if (projectFiles["ИНСТРУКЦИЯ.txt"]) {
+                    projectFiles["ИНСТРУКЦИЯ.txt"].content = responseData.README_txt;
+                } else if (projectFiles["ІНСТРУКЦІЯ.txt"]) {
+                    projectFiles["ІНСТРУКЦІЯ.txt"].content = responseData.README_txt;
+                } else {
+                    projectFiles["ИНСТРУКЦИЯ.txt"] = {
+                        name: "ИНСТРУКЦИЯ.txt",
+                        type: "text",
+                        content: responseData.README_txt
+                    };
+                }
 
                 // Сброс старого демо-сценария для новой генерации
                 DemoEngine.script = null;
@@ -1693,6 +1703,18 @@ Limit to 4-6 conversational turns.\`;
                 modal.classList.add("hidden");
             }, 300);
         }
+
+        // Automatic tab switching based on hash
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash === '#files' || window.location.hash === '#tab-files') {
+                tabFilesBtn.click();
+            }
+        });
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#files' || window.location.hash === '#tab-files') {
+                tabFilesBtn.click();
+            }
+        });
     </script>
 
 </body></html>
