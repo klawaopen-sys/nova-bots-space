@@ -160,41 +160,82 @@
     <header class="docked full-width top-0 sticky z-50 bg-zinc-950/60 backdrop-blur-xl border-b border-zinc-900 shadow-2xl">
         <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
             <!-- Brand -->
-            <div class="font-headline-xl text-2xl font-bold tracking-tighter text-white">
+            <div class="font-headline-xl text-2xl font-bold tracking-tighter text-white cursor-pointer hover:opacity-85 transition-opacity" onclick="switchMainTab('home')">
                 Nova Bots
             </div>
             <!-- Nav Links -->
-            <nav class="hidden md:flex gap-8 items-center">
-                <a data-i18n="nav_catalog" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#catalog">Каталог</a>
-                <a data-i18n="nav_demo" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#demo">Інтерактивне Демо</a>
-                <a data-i18n="nav_pricing" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#pricing">Тарифи</a>
-                <a data-i18n="nav_order" class="text-zinc-400 font-medium hover:text-white transition-colors duration-300" href="#contact">Замовити</a>
-            </nav>
-            <div class="hidden md:flex items-center gap-2 ml-8 mr-4 group relative">
-                <button class="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-300 py-2">
-                    <span class="material-symbols-outlined text-[20px]">language</span>
-                    <span class="font-label-sm text-xs uppercase">UA</span>
-                    <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+            <!-- App Tabs -->
+            <div class="hidden md:flex bg-zinc-900/50 p-1 rounded-xl border border-zinc-800 backdrop-blur-md mr-auto ml-12">
+                <button id="main-tab-home" data-i18n="nav_catalog_tab" class="px-6 py-2 rounded-lg text-sm font-semibold transition-all bg-indigo-600 text-white shadow-md" onclick="switchMainTab('home')">
+                    🛍️ Каталог Ботов
                 </button>
-                <!-- Dropdown Menu -->
-                <div class="absolute top-full right-0 mt-2 w-40 glass-panel rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-zinc-800 shadow-2xl z-50">
-                    <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="en">English</a>
-                    <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="ru">Русский</a>
-                    <a class="flex items-center px-4 py-2 text-xs text-white bg-indigo-500/20 hover:bg-indigo-500/30 transition-colors lang-select" href="#" data-lang="uk">Українська</a>
-                </div>
+                <button id="main-tab-constructor" data-i18n="nav_constructor_tab" class="px-6 py-2 rounded-lg text-sm font-semibold transition-all text-zinc-400 hover:text-white hover:bg-zinc-800/50" onclick="switchMainTab('constructor')">
+                    🛠️ AI Конструктор
+                </button>
             </div>
-            <!-- Action Button -->
-            <a data-i18n="btn_order_bot" class="hidden md:inline-flex bg-gradient-primary text-white font-semibold text-xs px-6 py-3 rounded-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity" href="#contact">
-                Замовити бота
-            </a>
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-6">
+                <!-- Language Selector -->
+                <div class="group relative">
+                    <button class="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors duration-300 py-2">
+                        <span class="material-symbols-outlined text-[18px]">language</span>
+                        <span class="font-label-sm text-xs uppercase">UA</span>
+                        <span class="material-symbols-outlined text-[14px] transition-transform group-hover:rotate-180">expand_more</span>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute top-full right-0 mt-2 w-40 glass-panel rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-zinc-800 shadow-2xl z-50">
+                        <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="en">English</a>
+                        <a class="flex items-center px-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-white/5 transition-colors lang-select" href="#" data-lang="ru">Русский</a>
+                        <a class="flex items-center px-4 py-2 text-xs text-white bg-indigo-500/20 hover:bg-indigo-500/30 transition-colors lang-select" href="#" data-lang="uk">Українська</a>
+                    </div>
+                </div>
+                <!-- Sleek primary gradient button -->
+                <a href="#contact" data-i18n="btn_order_bot" class="bg-gradient-primary text-white font-semibold text-xs px-5 py-2.5 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity">
+                    Замовити бота
+                </a>
+            </div>
             <!-- Mobile Menu Trigger -->
-            <button class="md:hidden text-white p-2" onclick="alert('Меню розробляється. Використовуйте прокручування сторінки.');">
+            <button class="md:hidden text-white p-2 hover:opacity-85 transition-opacity" onclick="toggleMobileMenu(true)">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-zinc-950/95 backdrop-blur-lg flex flex-col justify-center items-center gap-6 opacity-0 pointer-events-none transition-all duration-300">
+        <!-- Close Button -->
+        <button class="absolute top-6 right-6 text-white p-2" onclick="toggleMobileMenu(false)">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <!-- Nav Links -->
+        <button class="text-xl font-semibold text-white py-2 flex items-center gap-2" onclick="handleMobileNav('home')">
+            <span data-i18n="nav_catalog_tab">🛍️ Каталог ботів</span>
+        </button>
+        <button class="text-xl font-semibold text-white py-2 flex items-center gap-2" onclick="handleMobileNav('constructor')">
+            <span data-i18n="nav_constructor_tab">🛠️ AI Конструктор</span>
+        </button>
+        <a href="#contact" data-i18n="btn_order_bot" class="bg-gradient-primary text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:opacity-90 transition-opacity mt-4" onclick="toggleMobileMenu(false)">
+            Замовити бота
+        </a>
+        
+        <div class="h-px w-24 bg-zinc-800 my-4"></div>
+        
+        <!-- Language Switcher in Mobile Menu -->
+        <div class="flex gap-4">
+            <button class="px-3 py-1.5 rounded-lg border border-zinc-700 bg-zinc-900/50 text-white text-xs font-semibold hover:bg-zinc-800 transition-colors" onclick="setLanguage('uk'); toggleMobileMenu(false)">UA</button>
+            <button class="px-3 py-1.5 rounded-lg border border-zinc-700 bg-zinc-900/50 text-white text-xs font-semibold hover:bg-zinc-800 transition-colors" onclick="setLanguage('ru'); toggleMobileMenu(false)">RU</button>
+            <button class="px-3 py-1.5 rounded-lg border border-zinc-700 bg-zinc-900/50 text-white text-xs font-semibold hover:bg-zinc-800 transition-colors" onclick="setLanguage('en'); toggleMobileMenu(false)">EN</button>
+        </div>
+    </div>
+
     <!-- Main Content Canvas -->
+    <div id="view-home" class="block w-full">
+        <!-- Mobile Stub for Constructor -->
+        <div id="mobile-constructor-stub" class="hidden flex-col items-center justify-center p-8 text-center bg-zinc-900 border-b border-zinc-800">
+            <span class="material-symbols-outlined text-4xl text-indigo-400 mb-2">laptop_mac</span>
+            <h3 class="text-white font-bold text-lg mb-2">Конструктор доступен на ПК</h3>
+            <p class="text-zinc-400 text-sm max-w-sm">Полноценная среда разработки ботов и редактор кода требуют больше экранного места. Пожалуйста, откройте этот сайт с компьютера.</p>
+        </div>
     <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <!-- 2. Hero Section -->
         <section class="py-section-padding flex flex-col md:flex-row items-center gap-gutter relative">
@@ -795,7 +836,71 @@
         </div>
     </div>
 
+    </main>
+    </div> <!-- /view-home -->
+
+    <!-- View Constructor -->
+    <div id="view-constructor" class="hidden w-full bg-slate-950" style="height: calc(100vh - 72px);">
+        <iframe src="constructor.html" class="w-full h-full border-0 block"></iframe>
+    </div>
+
     <!-- Connect Phone Simulator Logic -->
     <script src="js/main.js"></script>
+    <script>
+        function switchMainTab(tab) {
+            const homeBtn = document.getElementById('main-tab-home');
+            const constructorBtn = document.getElementById('main-tab-constructor');
+            const viewHome = document.getElementById('view-home');
+            const viewConstructor = document.getElementById('view-constructor');
+            const mobileStub = document.getElementById('mobile-constructor-stub');
+            const mainContent = viewHome.querySelector('main');
+            
+            const activeClass = "px-6 py-2 rounded-lg text-sm font-semibold transition-all bg-indigo-600 text-white shadow-md";
+            const inactiveClass = "px-6 py-2 rounded-lg text-sm font-semibold transition-all text-zinc-400 hover:text-white hover:bg-zinc-800/50";
+
+            if (tab === 'home') {
+                if (homeBtn) homeBtn.className = activeClass;
+                if (constructorBtn) constructorBtn.className = inactiveClass;
+                viewHome.classList.remove('hidden');
+                viewConstructor.classList.add('hidden');
+                mobileStub.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                document.body.style.overflow = "auto";
+            } else {
+                if (homeBtn) homeBtn.className = inactiveClass;
+                if (constructorBtn) constructorBtn.className = activeClass;
+                
+                if (window.innerWidth < 768) {
+                    // Show mobile stub, hide constructor
+                    viewHome.classList.remove('hidden');
+                    mobileStub.classList.remove('hidden');
+                    mobileStub.style.display = 'flex';
+                    mainContent.classList.add('hidden');
+                    viewConstructor.classList.add('hidden');
+                } else {
+                    // Show full constructor
+                    viewHome.classList.add('hidden');
+                    viewConstructor.classList.remove('hidden');
+                    document.body.style.overflow = "hidden";
+                }
+            }
+        }
+
+        function toggleMobileMenu(isOpen) {
+            const menu = document.getElementById('mobile-menu');
+            if (isOpen) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-100');
+            } else {
+                menu.classList.remove('opacity-100');
+                menu.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function handleMobileNav(tab) {
+            switchMainTab(tab);
+            toggleMobileMenu(false);
+        }
+    </script>
 </body>
 </html>

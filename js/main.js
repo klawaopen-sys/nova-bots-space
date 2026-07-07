@@ -113,6 +113,8 @@ const BOT_SCENARIOS = {
 // --- Мультимовний інтерфейс посадкової сторінки ---
 const PAGE_TRANSLATIONS = {
     uk: {
+        "nav_catalog_tab": "🛍️ Каталог ботів",
+        "nav_constructor_tab": "🛠️ AI Конструктор",
         "nav_catalog": "Каталог",
         "nav_demo": "Інтерактивне Демо",
         "nav_pricing": "Тарифи",
@@ -217,6 +219,8 @@ const PAGE_TRANSLATIONS = {
         "pay_confirm_btn": "Я сплатив (Підтвердити в Telegram)"
     },
     ru: {
+        "nav_catalog_tab": "🛍️ Каталог ботов",
+        "nav_constructor_tab": "🛠️ AI Конструктор",
         "nav_catalog": "Каталог",
         "nav_demo": "Интерактивное Демо",
         "nav_pricing": "Тарифы",
@@ -321,6 +325,8 @@ const PAGE_TRANSLATIONS = {
         "pay_confirm_btn": "Я оплатил (Подтвердить в Telegram)"
     },
     en: {
+        "nav_catalog_tab": "🛍️ Bot Catalog",
+        "nav_constructor_tab": "🛠️ AI Constructor",
         "nav_catalog": "Catalog",
         "nav_demo": "Interactive Demo",
         "nav_pricing": "Pricing",
@@ -438,6 +444,10 @@ let bookingDay = '';
 let bookingTime = '';
 let realEstateType = 'sale';     // sale, rent
 let propertyCategory = 'apartment'; // apartment, house, land
+
+// Dynamic tracking for custom branching
+let clickedChannels = new Set();
+let searchState = 'main'; // main, typeSelected, showList
 
 function getLocalizedServiceName(service, lang) {
     const data = {
@@ -641,13 +651,204 @@ function renderMessage(msg) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
+function getLibrarianButtons() {
+    if (currentLang === 'uk') {
+        return ['📢 Сім сорок | Трейдинг', '🧠 Психологія', '🤖 Те що треба | AI', '🔄 Перевірити підписку', '⭐️ Забрати за 1 Зірку (без підписки)'];
+    } else if (currentLang === 'ru') {
+        return ['📢 Семь сорок | Трейдинг', '🧠 Психология', '🤖 Те что надо | AI', '🔄 Проверить подписку', '⭐️ Забрать за 1 Звезду (без подписки)'];
+    } else {
+        return ['📢 Seven Forty | Trading', '🧠 Psychology', '🤖 Te Shoo Treba | AI', '🔄 Check Subscription', '⭐️ Get for 1 Star (no subscription)'];
+    }
+}
+
+function showBotReplyWithTyping(botMsg) {
+    const chatContainer = document.getElementById('chat-container');
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'typing-indicator';
+    typingIndicator.className = 'flex items-center gap-1 bg-zinc-800 border border-zinc-700 px-4 py-3 rounded-2xl rounded-tl-sm w-16 mb-3 self-start animate-pulse';
+    typingIndicator.innerHTML = '<span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay:0.2s"></span><span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay:0.4s"></span>';
+    chatContainer.appendChild(typingIndicator);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+    setTimeout(() => {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) indicator.remove();
+        
+        renderMessage(botMsg);
+        isAnimating = false;
+    }, 1200);
+}
+
 function simulateNextStep(clickedText) {
+    // 1. Dynamic Routing for Librarian Bot
+    if (currentBot === 'librarian') {
+        isAnimating = true;
+        let userText = clickedText || '/start book_12';
+        
+        if (currentStep === 0) {
+            renderMessage({ sender: 'user', text: userText });
+            currentStep = 2;
+            
+            setTimeout(() => {
+                const botMsg = {
+                    sender: 'bot',
+                    text: currentLang === 'uk'
+                        ? '🔒 <b>Доступ обмежено!</b>\n\nЩоб безкоштовно розблокувати цей файл, тобі потрібно підписатися на наші корисні канали.\n\nБудь ласка, підпишись на канали нижче та натисни кнопку перевірки:'
+                        : currentLang === 'ru'
+                        ? '🔒 <b>Доступ ограничен!</b>\n\nЧтобы бесплатно разблокировать этот файл, вам нужно подписаться на наши полезные каналы.\n\nПожалуйста, подпишитесь на каналы ниже и нажмите кнопку проверки:'
+                        : '🔒 <b>Access Restricted!</b>\n\nTo unlock this file for free, you must subscribe to our partner channels.\n\nPlease subscribe to the channels below and click verification:',
+                    buttons: getLibrarianButtons()
+                };
+                showBotReplyWithTyping(botMsg);
+            }, 800);
+            return;
+        }
+        
+        renderMessage({ sender: 'user', text: userText });
+        
+        const isChannel = userText.includes('📢') || userText.includes('🧠') || userText.includes('🤖');
+        const isCheck = userText.includes('🔄');
+        const isStars = userText.includes('⭐️');
+        const isPay = userText.includes('💸');
+        const isCancel = userText.includes('❌');
+        
+        setTimeout(() => {
+            let botMsg = { sender: 'bot', text: '' };
+            if (isChannel) {
+                clickedChannels.add(userText);
+                botMsg.text = currentLang === 'uk'
+                    ? '✅ Дякуємо за підписку на цей канал! Будь ласка, підпишіться на інші канали або натисніть <b>"🔄 Перевірити підписку"</b>.'
+                    : currentLang === 'ru'
+                    ? '✅ Спасибо за подписку на этот канал! Пожалуйста, подпишитесь на остальные каналы или нажмите <b>"🔄 Проверить подписку"</b>.'
+                    : '✅ Thank you for subscribing to this channel! Please subscribe to the other channels or click <b>"🔄 Check Subscription"</b>.';
+                botMsg.buttons = getLibrarianButtons();
+            } else if (isCheck) {
+                if (clickedChannels.size < 2) {
+                    botMsg.text = currentLang === 'uk'
+                        ? '⚠️ Ви підписалися не на всі канали! Будь ласка, перевірте підписку на всі канали зі списку.'
+                        : currentLang === 'ru'
+                        ? '⚠️ Вы подписались не на все каналы! Пожалуйста, проверьте подписку на все каналы из списка.'
+                        : '⚠️ You have not subscribed to all channels yet! Please check your subscription to all listed channels.';
+                    botMsg.buttons = getLibrarianButtons();
+                } else {
+                    botMsg.text = currentLang === 'uk'
+                        ? '🎉 <b>Всі підписки успішно перевірено!</b>\n\nТвій файл успішно розблоковано:\n\n📚 <i>Книга_Маркетинг_ШИ.pdf (4.8 MB)</i>\n\nПриємного читання! 📖'
+                        : currentLang === 'ru'
+                        ? '🎉 <b>Все подписки успешно проверены!</b>\n\nТвой файл успешно разблокирован:\n\n📚 <i>Книга_Маркетинг_ИИ.pdf (4.8 MB)</i>\n\nПриятного чтения! 📖'
+                        : '🎉 <b>All subscriptions successfully verified!</b>\n\nYour file has been successfully unlocked:\n\n📚 <i>Book_Marketing_AI.pdf (4.8 MB)</i>\n\nEnjoy reading! 📖';
+                    currentStep = 6;
+                }
+            } else if (isStars) {
+                botMsg.text = currentLang === 'uk'
+                    ? '💳 Бот виставив рахунок: <b>Швидкий доступ до книги</b> за 1 Telegram Star (XTR).\nОчікування оплати...'
+                    : currentLang === 'ru'
+                    ? '💳 Бот выставил счет: <b>Быстрый доступ к книге</b> за 1 Telegram Star (XTR).\nОжидание оплаты...'
+                    : '💳 Invoice sent: <b>Instant access to book</b> for 1 Telegram Star (XTR).\nWaiting for payment...';
+                botMsg.buttons = currentLang === 'uk'
+                    ? ['💸 Сплатити 1 ⭐️', '❌ Скасувати']
+                    : currentLang === 'ru'
+                    ? ['💸 Оплатить 1 ⭐️', '❌ Отмена']
+                    : ['💸 Pay 1 ⭐️', '❌ Cancel'];
+                currentStep = 4;
+            } else if (isPay) {
+                botMsg.text = currentLang === 'uk'
+                    ? '🎉 <b>Дякуємо за підтримку зірками!</b>\nТвій файл успішно розблоковано:\n\n📚 <i>Книга_Маркетинг_ШИ.pdf (4.8 MB)</i>\n\nПриємного читання! 📖'
+                    : currentLang === 'ru'
+                    ? '🎉 <b>Спасибо за поддержку звездами!</b>\nТвой файл успешно разблокирован:\n\n📚 <i>Книга_Маркетинг_ИИ.pdf (4.8 MB)</i>\n\nПриятного чтения! 📖'
+                    : '🎉 <b>Thank you for supporting us with stars!</b>\nYour file has been successfully unlocked:\n\n📚 <i>Book_Marketing_AI.pdf (4.8 MB)</i>\n\nEnjoy reading! 📖';
+                currentStep = 6;
+            } else if (isCancel) {
+                botMsg.text = currentLang === 'uk'
+                    ? '🔒 <b>Доступ обмежено!</b>\n\nЩоб безкоштовно розблокувати цей файл, тобі потрібно підписатися на наші корисні канали.\n\nБудь ласка, підпишись на канали нижче та натисни кнопку перевірки:'
+                    : currentLang === 'ru'
+                    ? '🔒 <b>Доступ ограничен!</b>\n\nЧтобы бесплатно разблокировать этот файл, вам нужно подписаться на наши полезные каналы.\n\nПожалуйста, подпишитесь на каналы ниже и нажмите кнопку проверки:'
+                    : '🔒 <b>Access Restricted!</b>\n\nTo unlock this file for free, you must subscribe to our partner channels.\n\nPlease subscribe to the channels below and click verification:';
+                botMsg.buttons = getLibrarianButtons();
+                currentStep = 2;
+            }
+            showBotReplyWithTyping(botMsg);
+        }, 800);
+        return;
+    }
+
+    // 2. Dynamic Routing for Mriya (Real Estate CRM) - Search Path
+    if (currentBot === 'mriya') {
+        let userText = clickedText || '/start';
+        const isSearch = userText.includes('🔎');
+        const isBack = userText.includes('🔙');
+        const isPropertySelect = userText.includes('🏢') || userText.includes('🏡');
+        const isShowList = userText.includes('🖼️');
+        
+        if (isSearch || isBack || isPropertySelect || isShowList || searchState !== 'main') {
+            isAnimating = true;
+            renderMessage({ sender: 'user', text: userText });
+            
+            setTimeout(() => {
+                let botMsg = { sender: 'bot', text: '' };
+                
+                if (isBack) {
+                    searchState = 'main';
+                    botMsg.text = currentLang === 'uk'
+                        ? '🏠 <b>Вітаємо в CRM нерухомості!</b>\nЯ ваш цифровий асистент.\n\nОберіть дію:'
+                        : currentLang === 'ru'
+                        ? '🏠 <b>Добро пожаловать в CRM недвижимости!</b>\nЯ ваш цифровой ассистент по недвижимости.\n\nВыберите действие:'
+                        : '🏠 <b>Welcome to Real Estate CRM!</b>\nI am your digital real estate assistant.\n\nChoose an action:';
+                    botMsg.buttons = currentLang === 'uk'
+                        ? ['🔎 Пошук об\'єктів', '➕ Додати об\'єкт']
+                        : currentLang === 'ru'
+                        ? ['🔎 Поиск объектов', '➕ Добавить объект']
+                        : ['🔎 Search Properties', '➕ Add Property'];
+                } else if (isSearch) {
+                    searchState = 'typeSelected';
+                    botMsg.text = currentLang === 'uk'
+                        ? '🔎 <b>Пошук об\'єктів:</b> Наразі у базі знайдено 18 активних пропозицій. Оберіть тип нерухомості:'
+                        : currentLang === 'ru'
+                        ? '🔎 <b>Поиск объектов:</b> В данный момент в базе найдено 18 активных предложений. Выберите тип недвижимости:'
+                        : '🔎 <b>Search Properties:</b> Currently 18 active offers found. Select property type:';
+                    botMsg.buttons = currentLang === 'uk'
+                        ? ['🏢 Квартири', '🏡 Будинки', '🔙 Назад']
+                        : currentLang === 'ru'
+                        ? ['🏢 Квартиры', '🏡 Дома', '🔙 Назад']
+                        : ['🏢 Apartments', '🏡 Houses', '🔙 Back'];
+                } else if (isPropertySelect) {
+                    searchState = 'showList';
+                    const isApt = userText.includes('🏢');
+                    botMsg.text = currentLang === 'uk'
+                        ? `🏢 <b>Знайдено ${isApt ? 'квартир' : 'будинків'}: 12.</b>\nПоказати останні варіанти з фото та цінами?`
+                        : currentLang === 'ru'
+                        ? `🏢 <b>Найдено ${isApt ? 'квартир' : 'домов'}: 12.</b>\nПоказать последние варианты с фото и ценами?`
+                        : `🏢 <b>${isApt ? 'Apartments' : 'Houses'} found: 12.</b>\nShow recent listings with photos and prices?`;
+                    botMsg.buttons = currentLang === 'uk'
+                        ? ['🖼️ Так, показати', '🔙 Назад']
+                        : currentLang === 'ru'
+                        ? ['🖼️ Да, показать', '🔙 Назад']
+                        : ['🖼️ Yes, show', '🔙 Back'];
+                } else if (isShowList) {
+                    searchState = 'main';
+                    botMsg.text = currentLang === 'uk'
+                        ? '🖼️ <b>Квартира 2-кімнатна, м. Ніжин</b>\n💵 Ціна: 1,200,000 грн ($30,000)\n\n🚀 Об\'єкт повністю перевірено ИИ Gemini.\n📞 Контакт ріелтора: @mriya_realtor'
+                        : currentLang === 'ru'
+                        ? '🖼️ <b>Квартира 2-комнатная, г. Нежин</b>\n💵 Цена: 1,200,000 грн ($30,000)\n\n🚀 Объект полностью проверен ИИ Gemini.\n📞 Контакт риелтора: @mriya_realtor'
+                        : '🖼️ <b>Apartment 2-rooms, Nizhyn</b>\n💵 Price: 1,200,000 UAH ($30,000)\n\n🚀 Property verified by Gemini AI.\n📞 Broker contact: @mriya_realtor';
+                    botMsg.buttons = currentLang === 'uk'
+                        ? ['🔙 Назад']
+                        : currentLang === 'ru'
+                        ? ['🔙 Назад']
+                        : ['🔙 Back'];
+                }
+                
+                showBotReplyWithTyping(botMsg);
+            }, 800);
+            return;
+        }
+    }
+
+    // 3. Default Linear Routing
     const scenario = BOT_SCENARIOS[currentLang][currentBot];
     if (currentStep >= scenario.length || isAnimating) return;
     
     isAnimating = true;
     
-    // 1. Render user message (displaying clicked button text if available)
     const userMsg = Object.assign({}, scenario[currentStep]);
     if (clickedText) {
         userMsg.text = clickedText;
@@ -655,12 +856,10 @@ function simulateNextStep(clickedText) {
     renderMessage(userMsg);
     currentStep++;
     
-    // 2. Render bot reply after delay
     setTimeout(() => {
         if (currentStep < scenario.length) {
             const botMsg = Object.assign({}, scenario[currentStep]);
             
-            // Show typing indicator
             const chatContainer = document.getElementById('chat-container');
             const typingIndicator = document.createElement('div');
             typingIndicator.id = 'typing-indicator';
@@ -677,7 +876,6 @@ function simulateNextStep(clickedText) {
                 currentStep++;
                 isAnimating = false;
                 
-                // If the next step doesn't require button input, auto-trigger it after 1.5s
                 if (currentStep < scenario.length && scenario[currentStep].sender === 'user' && !botMsg.buttons) {
                     setTimeout(simulateNextStep, 1500);
                 }
@@ -699,6 +897,8 @@ function startScenario(botName) {
     bookingTime = '';
     realEstateType = 'sale';
     propertyCategory = 'apartment';
+    clickedChannels = new Set();
+    searchState = 'main';
     
     // Update Header UI based on currentBot and currentLang
     const headerTitle = document.getElementById('phone-header-title');
@@ -783,6 +983,9 @@ function setLanguage(langCode) {
 
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
+    // Apply initial translations
+    updatePageTranslations(currentLang);
+
     // Connect selector tabs
     document.querySelectorAll('.demo-tab').forEach(tab => {
         tab.onclick = () => {

@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="ru"><head><script data-bard-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjZjYTg2MDA3YjlmMTU0MmYyNDZlYjA0YmUwMzY0MWU2Njc3MTUzMTQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMTEyODM5ODQzMzUxOTA2NDMwMSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2VhMDg5OWFiZDg4M2M0YjFfZXhwb3J0ZXIuaHRtbC0xMTYifSwiZXhwIjoxNzgxNjM1NjYzLCJpYXQiOjE3ODE2MzIwNjMsImFsZyI6IlJTMjU2In0.G-0UlylcFoaXrdS_NUSHcVNqa6zw49XN8Kt7kLReZUyNxAED4n3biNHvbgfIGtyxagr_yJtmU6NOLVNhwu-gDsWXGuJdMyZqcLB31Lkz-EltJSXN-kQXPuzE4BPXn9j6_uEIoXnygbGzIDhJ2oFwSVH7EBwSZG0sPybNJ1VB8QyMh7OfPshd1VgXqfyzeXEboJZv6QSw_SBDev6KMJwYy4fAQcgjHqRZhwsj9YYjhuF-IHIlDSZGaKWzOEvr6gCKyKTIGQuWlyicvhXy2G_b9ahyiqD2WC4-Dt5NjbLWPGZkiLX7AXrlgh8LMgJghxgDR2qWXxYP1H-o5TyPEMZDqw","c_ea0899abd883c4b1_exporter.html-116")</script><script data-bard-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-injected="true">(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){var c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){var b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){let [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;var c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){var d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){var d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function ua(a,b){return t(function*(){var d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){var d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield wa(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;let c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){var b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script data-bard-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.g=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.h="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image"]})</script><script data-bard-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot Creator - Meta Generator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JSZip Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* CSS Phone Mockup animations and styles */
+        .phone-mockup {
+            border: 8px solid #27272a;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #0f0d13;
+            position: relative;
+            margin: 0 auto;
+        }
+        .phone-mockup::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 20px;
+            background: #27272a;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 40;
+        }
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes fadeInMsg {
+            from { opacity: 0; transform: translateY(8px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .msg-animate {
+            animation: fadeInMsg 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.bottom-6{bottom:1.5rem}.right-6{right:1.5rem}.z-50{z-index:50}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1\.5{margin-top:0.375rem}.mt-auto{margin-top:auto}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-6{height:1.5rem}.h-12{height:3rem}.h-2\.5{height:0.625rem}.h-5{height:1.25rem}.h-7{height:1.75rem}.h-full{height:100%}.h-4{height:1rem}.min-h-screen{min-height:100vh}.w-6{width:1.5rem}.w-full{width:100%}.w-12{width:3rem}.w-2\.5{width:0.625rem}.w-5{width:1.25rem}.w-7{width:1.75rem}.w-4{width:1rem}.max-w-\[85\%\]{max-width:85%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2\.5{gap:0.625rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-lg{border-radius:0.5rem}.rounded-tl-none{border-top-left-radius:0px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-violet-500\/20{border-color:rgb(139 92 246 / 0.2)}.border-rose-500\/30{border-color:rgb(244 63 94 / 0.3)}.border-slate-700\/50{border-color:rgb(51 65 85 / 0.5)}.border-slate-800\/80{border-color:rgb(30 41 59 / 0.8)}.border-indigo-500\/30{border-color:rgb(99 102 241 / 0.3)}.border-transparent{border-color:transparent}.bg-slate-900\/40{background-color:rgb(15 23 42 / 0.4)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-violet-500\/10{background-color:rgb(139 92 246 / 0.1)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-rose-900\/90{background-color:rgb(136 19 55 / 0.9)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-slate-950\/20{background-color:rgb(2 6 23 / 0.2)}.bg-slate-950\/40{background-color:rgb(2 6 23 / 0.4)}.bg-slate-950\/60{background-color:rgb(2 6 23 / 0.6)}.bg-slate-950\/80{background-color:rgb(2 6 23 / 0.8)}.bg-indigo-600\/20{background-color:rgb(79 70 229 / 0.2)}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-indigo-600{--tw-gradient-from:#4f46e5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(79 70 229 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-violet-600{--tw-gradient-from:#7c3aed var(--tw-gradient-from-position);--tw-gradient-to:rgb(124 58 237 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-violet-500{--tw-gradient-to:#8b5cf6 var(--tw-gradient-to-position)}.to-indigo-600{--tw-gradient-to:#4f46e5 var(--tw-gradient-to-position)}.to-teal-500{--tw-gradient-to:#14b8a6 var(--tw-gradient-to-position)}.p-2\.5{padding:0.625rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pt-3{padding-top:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-\[10px\]{font-size:10px}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-violet-400{--tw-text-opacity:1;color:rgb(167 139 250 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-indigo-400{--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.text-rose-100{--tw-text-opacity:1;color:rgb(255 228 230 / var(--tw-text-opacity, 1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139 / var(--tw-placeholder-opacity, 1))}.placeholder-slate-600::placeholder{--tw-placeholder-opacity:1;color:rgb(71 85 105 / var(--tw-placeholder-opacity, 1))}.placeholder-slate-700::placeholder{--tw-placeholder-opacity:1;color:rgb(51 65 85 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-indigo-500\/20{--tw-shadow-color:rgb(99 102 241 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-emerald-500\/10{--tw-shadow-color:rgb(16 185 129 / 0.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-indigo-500\/10{--tw-shadow-color:rgb(99 102 241 / 0.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-indigo-600\/10{--tw-shadow-color:rgb(79 70 229 / 0.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-indigo-600\/15{--tw-shadow-color:rgb(79 70 229 / 0.15);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-slate-600:hover{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.hover\:bg-indigo-500:hover{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800\/60:hover{background-color:rgb(30 41 59 / 0.6)}.hover\:from-emerald-400:hover{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-violet-500:hover{--tw-gradient-from:#8b5cf6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(139 92 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-indigo-500:hover{--tw-gradient-to:#6366f1 var(--tw-gradient-to-position)}.hover\:to-teal-400:hover{--tw-gradient-to:#2dd4bf var(--tw-gradient-to-position)}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.focus\:border-indigo-500:focus{--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}}@media (min-width: 1024px){.lg\:w-auto{width:auto}.lg\:w-\[450px\]{width:450px}.lg\:flex-row{flex-direction:row}.lg\:border-b-0{border-bottom-width:0px}.lg\:border-r{border-right-width:1px}}</style></head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Premium Header -->
+    <header class="border-b border-slate-800 bg-slate-900/40 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex flex-col lg:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-tr from-indigo-600 to-violet-500 text-white p-2.5 rounded-xl shadow-lg shadow-indigo-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                    AI Telegram Bot Architect
+                    <span class="bg-violet-500/10 text-violet-400 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-violet-500/20">v2.5 Meta</span>
+                </h1>
+                <p class="text-xs text-slate-400">ИИ-Конструктор: от идеи в вашей голове до готового ZIP-архива под ключ за 2 минуты</p>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+            <button id="btn-download-self" class="bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold px-5 py-3 rounded-xl transition-all duration-200 border border-slate-800 flex items-center justify-center gap-2 text-sm shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                </svg>
+                Сохранить этот Конструктор (.html)
+            </button>
+            <button id="btn-download" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+                Скачать проект в .ZIP
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        
+        <!-- Left Side: Interactive Chat & Wizard -->
+        <section class="w-full lg:w-[450px] bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col overflow-hidden">
+            
+            <!-- Tab Headers -->
+            <div class="flex border-b border-slate-800 bg-slate-950/40 p-2 gap-1.5">
+                <button id="tab-chat-btn" class="flex-1 py-2 text-[11px] font-semibold rounded-lg transition-all bg-indigo-600 text-white flex items-center justify-center gap-1 shadow-md shadow-indigo-600/15">
+                    <span>💬</span> Бриф
+                </button>
+                <button id="tab-files-btn" class="flex-1 py-2 text-[11px] font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1">
+                    <span>📁</span> Файлы
+                </button>
+                <button id="tab-demo-btn" class="flex-1 py-2 text-[11px] font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1">
+                    <span>📱</span> Демо
+                </button>
+            </div>
+
+            <!-- Tab Content: Interactive Chat -->
+            <div id="tab-chat" class="flex-1 flex flex-col overflow-hidden">
+                
+                <!-- Local Run Config Panel -->
+                <div class="p-3 bg-slate-950/40 border-b border-slate-800/80 flex flex-col gap-1.5">
+                    <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 px-1">Ключ Gemini API (для работы на ПК):</label>
+                    <input id="user-api-key" type="password" class="w-full bg-slate-950 border border-slate-800/80 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 placeholder-slate-700" placeholder="Вставьте сюда ваш AIzaSy... для локального запуска">
+                </div>
+
+                <!-- Preset Quick Buttons -->
+                <div class="p-3 bg-slate-950/20 border-b border-slate-800/80">
+                    <p class="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-2 px-1">Шаблоны быстрого старта:</p>
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <button onclick="applyPreset('Бот для умного автоматического полива экзотических растений с напоминаниями и базой знаний')" class="text-left bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600 rounded-lg p-2 text-[11px] transition-all flex items-center gap-1.5 text-slate-300">
+                            <span>🌿</span> Умный полив
+                        </button>
+                        <button onclick="applyPreset('Бот для онлайн-записи клиентов на услуги (салон красоты, СТО, врач) с интеграцией Google Sheets')" class="text-left bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600 rounded-lg p-2 text-[11px] transition-all flex items-center gap-1.5 text-slate-300">
+                            <span>📅</span> Онлайн-запись
+                        </button>
+                        <button onclick="applyPreset('Бот-каталог доставки еды с корзиной товаров, подсчетом суммы и отправкой заказа админу')" class="text-left bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600 rounded-lg p-2 text-[11px] transition-all flex items-center gap-1.5 text-slate-300">
+                            <span>🍕</span> Доставка еды
+                        </button>
+                        <button onclick="applyPreset('Бот обратной связи для поддержки клиентов (FAQ) с ответами оператора прямо через Telegram')" class="text-left bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600 rounded-lg p-2 text-[11px] transition-all flex items-center gap-1.5 text-slate-300">
+                            <span>🤝</span> Бот-поддержка (FAQ)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages Screen -->
+                <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 scroll-smooth">
+                    <!-- Welcome bot message -->
+                    <div class="flex gap-2.5 max-w-[85%]">
+                        <div class="w-7 h-7 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">AI</div>
+                        <div class="bg-slate-800 border border-slate-700/50 rounded-2xl rounded-tl-none p-3 text-xs leading-relaxed text-slate-200">
+                            Привет! Я твой ИИ-архитектор. Опиши мне, какого Telegram-бота ты хочешь создать? Например: <i>«Бот для автоматического полива экзотических растений»</i> или выбери готовый шаблон выше. Я проведу бриф и сгенерирую полный проект в ZIP-архив с автоматическим установщиком!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Control Inputs -->
+                <div class="p-3 bg-slate-950/40 border-t border-slate-800 flex flex-col gap-2">
+                    <div class="flex gap-2">
+                        <input id="chat-input" type="text" class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 placeholder-slate-500" placeholder="Опишите вашу идею или ответьте на вопросы...">
+                        <button id="btn-send" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-xl transition-all shadow-md shadow-indigo-600/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="btn-force-generate" class="flex-1 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold py-2 px-3 rounded-lg text-[11px] transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-500/10">
+                            🚀 Сгенерировать проект сейчас
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: File Explorer -->
+            <div id="tab-files" class="p-4 flex flex-col gap-3 flex-1 hidden overflow-y-auto">
+                <div class="flex justify-between items-center px-2">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Структура файлов</div>
+                    <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-slate-200 text-[10px] px-2.5 py-1 rounded-md border border-slate-700 transition-colors flex items-center gap-1">
+                        <input type="file" id="zip-upload-input" accept=".zip" class="hidden">
+                        <span>📥</span> Загрузить .ZIP
+                    </label>
+                </div>
+                <!-- Dynamic Config Keys Modal inside File Explorer -->
+                <div id="config-keys-container" class="hidden flex flex-col gap-2 bg-indigo-950/20 border border-indigo-500/20 rounded-xl p-3 mb-2">
+                    <div class="text-[11px] font-bold text-indigo-300 flex items-center gap-1.5 mb-1">
+                        <span class="material-symbols-outlined text-sm">key</span> Настройка ключей (из .env)
+                    </div>
+                    <div id="config-keys-list" class="flex flex-col gap-2"></div>
+                    <button id="btn-save-keys" class="bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-bold py-1.5 rounded-lg mt-1 transition-all">Сохранить ключи</button>
+                </div>
+                
+                <nav class="flex flex-col gap-1" id="file-list"><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                 <span class="truncate">.env_template</span></button><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                 <span class="truncate">requirements.txt</span></button><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                     <span class="truncate">install_run.bat</span></button><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                     <span class="truncate">install_run.sh</span></button><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                 <span class="truncate">ИНСТРУКЦИЯ.txt</span></button><button class="w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all bg-indigo-600/20 border border-indigo-500/30 text-indigo-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                     <span class="truncate">main.py</span></button></nav>
+                <div class="mt-auto border-t border-slate-800/80 pt-3">
+                    <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800/80">
+                        <h4 class="text-xs font-bold text-slate-300 flex items-center gap-1.5 mb-1.5">
+                            <span>🛠️</span> ИИ-Редактор кода
+                        </h4>
+                        <textarea id="code-prompt" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-[11px] text-slate-300 focus:outline-none focus:border-indigo-500 placeholder-slate-600" placeholder="Например: 'Добавь функцию логирования ошибок в файл main.py'"></textarea>
+                        <button id="btn-refactor" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-1.5 rounded-lg text-[10px] mt-1.5 transition-all flex items-center justify-center gap-1">
+                            <span>✨</span> Применить изменения ИИ
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Interactive Demo -->
+            <div id="tab-demo" class="p-4 flex flex-col items-center justify-center flex-1 hidden overflow-y-auto bg-black/20">
+                <div class="w-full text-center mb-3">
+                    <h3 class="text-sm font-bold text-white">Интерактивный Демо-чат</h3>
+                    <p class="text-[10px] text-slate-400">Симулятор работы сгенерированного бота</p>
+                </div>
+                <!-- Phone Mockup -->
+                <div class="phone-mockup w-[300px] h-[550px] flex flex-col shadow-2xl relative z-10 border border-slate-800 shrink-0">
+                    <div class="h-6 w-full bg-slate-950 flex items-center justify-between px-6 pt-1 text-[10px] text-slate-500 font-semibold select-none">
+                        <span>9:41</span>
+                        <div class="flex items-center gap-1 tracking-tighter">
+                            <span>•••</span>
+                        </div>
+                    </div>
+                    <!-- Telegram Header -->
+                    <div class="bg-slate-900 border-b border-slate-800/80 px-4 py-2.5 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-bold shadow-md text-sm">Bot</div>
+                        <div class="flex-grow min-w-0">
+                            <div class="font-bold text-white text-xs truncate" id="demo-header-title">My Bot</div>
+                            <div class="text-[10px] text-slate-400 flex items-center gap-1">
+                                <span class="w-1 h-1 bg-emerald-500 rounded-full animate-pulse"></span>
+                                <span>bot assistant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chat Area -->
+                    <div class="flex-grow overflow-y-auto p-3 bg-slate-950/80 scrollbar-none flex flex-col gap-2" id="demo-chat-container">
+                        <!-- Messages injected here -->
+                    </div>
+                    <!-- Keyboard Area -->
+                    <div class="bg-slate-900 border-t border-slate-800/80 p-2.5 flex flex-col gap-2">
+                        <div id="demo-chat-keyboard" class="w-full flex flex-col gap-1.5"></div>
+                        <div class="flex items-center gap-2 mt-0.5">
+                            <div class="flex-grow bg-slate-950 border border-slate-800 rounded-full px-3 py-1.5 text-[11px] text-slate-500">Message...</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <button onclick="DemoEngine.start()" class="bg-slate-800 hover:bg-slate-700 text-white text-[10px] px-3 py-1.5 rounded-lg border border-slate-700 transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-xs">refresh</span> Перезапустить</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side: Code Editor -->
+        <main class="flex-1 flex flex-col bg-slate-950 overflow-hidden relative">
+            <div class="bg-slate-900/50 px-6 py-2.5 border-b border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="current-filename" class="font-mono text-indigo-400 font-semibold">main.py</span>
+                </div>
+                <span class="bg-slate-800 px-2.5 py-1 rounded text-[10px] tracking-wider uppercase font-mono text-slate-300" id="file-type">python</span>
+            </div>
+            <div class="flex-1 relative overflow-hidden">
+                <textarea id="editor" class="w-full h-full bg-slate-950 text-slate-300 font-mono text-sm p-6 focus:outline-none focus:ring-0 resize-none leading-relaxed" spellcheck="false"></textarea>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="modal-success" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-md w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white text-center mb-2">Проект успешно упакован!</h3>
+            <p class="text-sm text-slate-400 text-center mb-6">Архив с вашим уникальным ботом сохранен на ваш компьютер. <br><br> Просто разархивируйте его и запустите файл <code class="text-indigo-400 font-mono">install_run.bat</code> (Windows) или <code class="text-indigo-400 font-mono">install_run.sh</code> (Mac/Linux).</p>
+            <button onclick="closeModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2.5 rounded-xl transition-all">
+                Готово, вернуться к редактору
+            </button>
+        </div>
+    </div>
+
+    <!-- Error Toast Notification -->
+    <div id="toast-error" class="fixed bottom-6 right-6 bg-rose-900/90 border border-rose-500/30 text-rose-100 px-4 py-3 rounded-xl shadow-2xl z-50 flex items-center gap-2.5 max-w-md hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-rose-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        <span id="toast-message" class="text-xs">Произошла ошибка</span>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        const apiKey = ""; // Будет предоставлено во время выполнения средой Canvas
+
+        // Дефолтная структура файлов при загрузке (Бот для автополива растений в качестве стартового шаблона)
+        const projectFiles = {
+            ".env_template": {
+                name: ".env_template",
+                type: "properties",
+                content: `UNIVERSAL_BOT_TOKEN=\nGOOGLE_SHEETS_ID=\nADMIN_IDS=\n`
+            },
+            "requirements.txt": {
+                name: "requirements.txt",
+                type: "text",
+                content: `aiogram==3.4.1\ngspread==6.0.2\ngoogle-auth-oauthlib==1.2.0\naiosqlite==0.19.0\n`
+            },
+            "install_run.bat": {
+                name: "install_run.bat",
+                type: "bat",
+                content: `@echo off\nchcp 65001 > nul\necho ==================================================\necho [1/3] Проверка установки Python...\npython --version >nul 2>&1\nif %errorlevel% neq 0 (\n    echo Ошибка: Python не установлен! Пожалуйста, установите Python 3.10+ с сайта python.org и отметьте галочку 'Add Python to PATH'.\n    pause\n    exit /b\n)\necho [2/3] Создание виртуального окружения venv...\nif not exist venv (\n    python -m venv venv\n)\ncall venv\\Scripts\\activate\necho [3/3] Установка зависимостей из requirements.txt...\npython -m pip install --upgrade pip\npip install -r requirements.txt\necho ==================================================\necho Запуск вашего уникального Telegram-бота...\npython main.py\npause\n`
+            },
+            "install_run.sh": {
+                name: "install_run.sh",
+                type: "shell",
+                content: `#!/bin/bash\necho "=================================================="\necho "[1/3] Проверка установки Python..."\nif ! command -v python3 &> /dev/null\nthen\n    echo "Ошибка: Python3 не найден в вашей системе."\n    exit 1\nfi\necho "[2/3] Создание виртуального окружения venv..."\nif [ ! -d "venv" ]; then\n    python3 -m venv venv\nfi\nsource venv/bin/activate\necho "[3/3] Установка зависимостей..."\npip install --upgrade pip\npip install -r requirements.txt\necho "=================================================="\necho "Запуск Telegram-бота..."\npython3 main.py\n`
+            },
+            "ИНСТРУКЦИЯ.txt": {
+                name: "ИНСТРУКЦИЯ.txt",
+                type: "text",
+                content: `=====================================================================\n📖 ПОШАГОВАЯ ИНСТРУКЦИЯ: КАК ЗАПУСТИТЬ БОТА ЗА 1 МИНУТУ\n=====================================================================\n\nШАГ 1. Создаем робота в Telegram\n1. Перейдите в Telegram к боту: https://t.me/BotFather, напишите /newbot, дайте имя и скопируйте полученный Токен.\n\nШАГ 2. Настройка файла конфигурации бота\n1. Переименуйте файл ".env_template" в ".env".\n2. Откройте файл ".env" через обычный Блокнот.\n3. Впишите ваши ключи: токен бота (UNIVERSAL_BOT_TOKEN), ID вашей Google Таблицы (GOOGLE_SHEETS_ID), и ваш личный ID в Telegram (ADMIN_IDS) через запятую.\n4. Сохраните изменения в файле.\n\nШАГ 3. Быстрый запуск на вашем компьютере\nДля ОС Windows:\nПросто дважды кликните по файлу "install_run.bat". Скрипт сам создаст виртуальное окружение, установит все необходимые библиотеки и запустит бота.\n\nДля ОС Mac / Linux:\nОткройте консоль в папке проекта и выполните команду: bash install_run.sh\n`
+            },
+            "main.py": {
+                name: "main.py",
+                type: "python",
+                content: `import os\nimport sys\nimport asyncio\nimport logging\n\n# Встроенный парсер переменных из файла .env\ndef load_env():\n    if os.path.exists(".env"):\n        with open(".env", "r", encoding="utf-8") as f:\n            for line in f:\n                line = line.strip()\n                if line and not line.startswith("#") and "=" in line:\n                    key, val = line.split("=", 1)\n                    os.environ[key.strip()] = val.strip()\n\nload_env()\n\nTOKEN = os.getenv("UNIVERSAL_BOT_TOKEN", "ВАШ_ТОКЕН_ИЗ_BOTFATHER")\nGOOGLE_SHEETS_ID = os.getenv("GOOGLE_SHEETS_ID", "ID_ВАШЕЙ_GOOGLE_ТАБЛИЦЫ")\n\ntry:\n    from aiogram import Bot, Dispatcher, F, Router\n    from aiogram.types import Message, CallbackQuery, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton\n    from aiogram.fsm.state import StatesGroup, State\n    from aiogram.fsm.context import FSMContext\n    from aiogram.filters import CommandStart\nexcept ImportError:\n    print("Ошибка импорта библиотек. Запустите install_run.bat для автоматического развертывания окружения.")\n    sys.exit()\n\nbot = Bot(token=TOKEN)\ndp = Dispatcher()\nrouter = Router()\n\nclass PlantStates(StatesGroup):\n    waiting_for_plant_name = State()\n\n@router.message(CommandStart())\nasync def cmd_start(message: Message):\n    kb = InlineKeyboardMarkup(inline_keyboard=[\n        [InlineKeyboardButton(text="🌿 Добавить растение", callback_data="add_plant")],\n        [InlineKeyboardButton(text="📅 График полива", callback_data="watering_schedule")]\n    ])\n    await message.answer("🌿 Добро пожаловать в виртуальный ассистент по уходу за экзотическими растениями!\\nВыберите необходимое действие:", reply_markup=kb)\n\n@router.callback_query(F.data == "add_plant")\nasync def add_plant(callback: CallbackQuery, state: FSMContext):\n    await callback.message.edit_text("👉 Введите название вашего нового экзотического растения:")\n    await state.set_state(PlantStates.waiting_for_plant_name)\n    await callback.answer()\n\n@router.message(PlantStates.waiting_for_plant_name)\nasync def plant_name_captured(message: Message, state: FSMContext):\n    plant_name = message.text.strip()\n    await message.answer(f"✅ Растение <b>{plant_name}</b> успешно внесено в вашу локальную базу!\\nЯ буду своевременно напоминать о необходимости полива.", parse_mode="HTML")\n    await state.clear()\n\nasync def main():\n    dp.include_router(router)\n    logging.basicConfig(level=logging.INFO)\n    await dp.start_polling(bot)\n\nif __name__ == '__main__':\n    asyncio.run(main())\n`
+            }
+        };
+
+        let currentFile = "main.py";
+        let conversationHistory = []; // Хранит контекст текущего диалога с Gemini ИИ
+        let isRefactoring = false;
+
+        const fileListEl = document.getElementById("file-list");
+        const editorEl = document.getElementById("editor");
+        const currentFilenameEl = document.getElementById("current-filename");
+        const fileTypeEl = document.getElementById("file-type");
+        const btnDownload = document.getElementById("btn-download");
+        const btnDownloadSelf = document.getElementById("btn-download-self");
+
+        const chatMessagesEl = document.getElementById("chat-messages");
+        const chatInputEl = document.getElementById("chat-input");
+        const btnSendEl = document.getElementById("btn-send");
+        const btnForceGenerate = document.getElementById("btn-force-generate");
+
+        const tabChatBtn = document.getElementById("tab-chat-btn");
+        const tabFilesBtn = document.getElementById("tab-files-btn");
+        const tabDemoBtn = document.getElementById("tab-demo-btn");
+        const tabChat = document.getElementById("tab-chat");
+        const tabFiles = document.getElementById("tab-files");
+        const tabDemo = document.getElementById("tab-demo");
+
+        const toast = document.getElementById("toast-error");
+        const toastMessage = document.getElementById("toast-message");
+        const modal = document.getElementById("modal-success");
+        const modalContent = document.getElementById("modal-content");
+
+        // Управление вкладками боковой панели
+        tabChatBtn.onclick = () => {
+            tabChatBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all bg-indigo-600 text-white flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/15";
+            tabFilesBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabDemoBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabChat.classList.remove("hidden");
+            tabFiles.classList.add("hidden");
+            tabDemo.classList.add("hidden");
+        };
+
+        tabFilesBtn.onclick = () => {
+            tabFilesBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all bg-indigo-600 text-white flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/15";
+            tabChatBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabDemoBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabFiles.classList.remove("hidden");
+            tabChat.classList.add("hidden");
+            tabDemo.classList.add("hidden");
+        };
+
+        tabDemoBtn.onclick = () => {
+            tabDemoBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all bg-indigo-600 text-white flex items-center justify-center gap-1.5 shadow-md shadow-indigo-600/15";
+            tabChatBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabFilesBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-1.5";
+            tabDemo.classList.remove("hidden");
+            tabChat.classList.add("hidden");
+            tabFiles.classList.add("hidden");
+            DemoEngine.init();
+        };
+
+        function showError(msg) {
+            toastMessage.textContent = msg;
+            toast.classList.remove("hidden");
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 6000);
+        }
+
+        // Рендеринг дерева файлов на левой панели
+        function renderFileList() {
+            fileListEl.innerHTML = "";
+            Object.keys(projectFiles).forEach(key => {
+                const file = projectFiles[key];
+                const isActive = key === currentFile;
+                const item = document.createElement("button");
+                item.className = `w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-2.5 text-sm font-mono transition-all ${
+                    isActive 
+                    ? "bg-indigo-600/20 border border-indigo-500/30 text-indigo-300" 
+                    : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"
+                }`;
+                item.onclick = () => selectFile(key);
+                
+                let icon = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                `;
+                if (file.name.includes(".bat") || file.name.includes(".sh")) {
+                    icon = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    `;
+                } else if (file.name.endsWith(".py")) {
+                    icon = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    `;
+                }
+
+                item.innerHTML = `${icon} <span class="truncate">${file.name}</span>`;
+                fileListEl.appendChild(item);
+            });
+        }
+
+        function selectFile(key) {
+            projectFiles[currentFile].content = editorEl.value;
+            currentFile = key;
+            const file = projectFiles[key];
+            editorEl.value = file.content;
+            currentFilenameEl.textContent = file.name;
+            fileTypeEl.textContent = file.type;
+            renderFileList();
+        }
+
+        editorEl.value = projectFiles[currentFile].content;
+        renderFileList();
+
+        editorEl.addEventListener("input", () => {
+            projectFiles[currentFile].content = editorEl.value;
+        });
+
+        // Функция fetch-запросов с экспоненциальной задержкой
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        const errText = await response.text();
+                        throw new Error(`HTTP Error ${response.status}: ${errText}`);
+                    }
+                    return await response.json();
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        // --- ПРЕСЕТЫ БЫСТРОГО СТАРТА ---
+        function applyPreset(text) {
+            chatInputEl.value = text;
+            sendMessage();
+        }
+
+        // --- ДИАЛОГ С ИИ-АРХИТЕКТОРОМ БОТОВ ---
+        async function sendMessage() {
+            const text = chatInputEl.value.trim();
+            if (!text) return;
+
+            // Отображение сообщения пользователя в чате
+            const userMsgHtml = `
+                <div class="flex gap-2.5 max-w-[85%] ml-auto justify-end">
+                    <div class="bg-indigo-600 text-white rounded-2xl rounded-tr-none p-3 text-xs leading-relaxed">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            chatMessagesEl.insertAdjacentHTML("beforeend", userMsgHtml);
+            chatInputEl.value = "";
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+            // Сохранение в локальный контекст сессии
+            conversationHistory.push({ role: "user", parts: [{ text: text }] });
+
+            // Пузырек ожидания ответа ИИ
+            const loadingId = "ai-loading-" + Date.now();
+            const loadingHtml = `
+                <div id="${loadingId}" class="flex gap-2.5 max-w-[85%]">
+                    <div class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-xs font-bold flex-shrink-0">AI</div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-3 text-xs leading-relaxed text-slate-400 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce"></span>
+                        <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                        <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    </div>
+                </div>
+            `;
+            chatMessagesEl.insertAdjacentHTML("beforeend", loadingHtml);
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+            const systemPrompt = `You are an elite AI Systems Analyst and Telegram Bot Architect.
+Your task is to guide the user in a friendly conversation to understand the specifications of the Telegram Bot they want to build.
+When they share an idea, briefly analyze it (1-2 sentences), then ask exactly 2 target, concise clarifying questions (e.g. about SQLite database structure, sheets integration, user roles, or key commands).
+Be helpful, professional, and respond in Russian. Always encourage them to press the "Сгенерировать проект сейчас" button when they are ready to assemble the final package.`;
+
+            // Получение ключа из поля ввода или из константы среды Canvas
+            const activeApiKey = document.getElementById("user-api-key").value.trim() || apiKey;
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeApiKey}`;
+            const payload = {
+                contents: conversationHistory,
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                if (!activeApiKey) {
+                    throw new Error("API-ключ не найден. Пожалуйста, вставьте ваш Gemini API Key в поле вверху боковой панели.");
+                }
+
+                const result = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const replyText = result.candidates[0].content.parts[0].text;
+                conversationHistory.push({ role: "model", parts: [{ text: replyText }] });
+
+                document.getElementById(loadingId).remove();
+                const aiReplyHtml = `
+                    <div class="flex gap-2.5 max-w-[85%]">
+                        <div class="w-7 h-7 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">AI</div>
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-3 text-xs leading-relaxed text-slate-200">
+                            ${replyText}
+                        </div>
+                    </div>
+                `;
+                chatMessagesEl.insertAdjacentHTML("beforeend", aiReplyHtml);
+                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                showError(`Ошибка соединения с ИИ: ${error.message}`);
+            }
+        }
+
+        btnSendEl.onclick = sendMessage;
+        chatInputEl.onkeydown = (e) => {
+            if (e.key === "Enter") sendMessage();
+        };
+
+        // --- ДИНАМИЧЕСКИЙ СИНТЕЗ ПРОЕКТА ИЗ БРИФА В ФАЙЛЫ ---
+        btnForceGenerate.onclick = async function() {
+            if (conversationHistory.length === 0) {
+                showError("Пожалуйста, начните диалог с архитектором или выберите готовый шаблон вверху!");
+                return;
+            }
+
+            btnForceGenerate.disabled = true;
+            btnForceGenerate.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Проектирование...
+            `;
+
+            const loaderHtml = `
+                <div id="build-status-loader" class="flex gap-2.5 max-w-[85%] mt-3">
+                    <div class="w-7 h-7 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">🏗️</div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-4.5 text-xs leading-relaxed text-slate-200 w-full">
+                        <div class="font-bold text-indigo-400 mb-1.5 flex items-center gap-1.5">
+                            <span>🏗️</span> Модуль сборки запущен
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3 leading-relaxed">ИИ анализирует бриф-требования для генерации кастомной структуры вашего Telegram-бота.</p>
+                        <div class="space-y-1.5 font-mono text-[10px] text-slate-500" id="assembler-steps">
+                            <div>[1/4] Обработка архитектуры бриф-диалога...</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            chatMessagesEl.insertAdjacentHTML("beforeend", loaderHtml);
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+            const assemblerSteps = document.getElementById("assembler-steps");
+            const addStep = (txt) => {
+                const div = document.createElement("div");
+                div.textContent = txt;
+                assemblerSteps.appendChild(div);
+                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+            };
+
+            const systemPrompt = `You are a legendary Senior Telegram Bot Developer specializing in python, aiogram 3.4.1, aiosqlite, and gspread.
+You must analyze the preceding chat history and compile a robust, production-ready, fully functioning Telegram Bot package.
+
+Write complete, clean code that avoids stub comments wherever possible. Use Russian language for bot comments, user notifications and text inside main.py.
+You must output a structured JSON containing:
+1. "main_py": This file contains the complete python code of the Telegram Bot. Use aiogram 3.x. Use aiosqlite or gspread as required. Ensure state machines (FSM) are fully implemented.
+2. "env_template": Environment variable configuration file.
+3. "requirements_txt": Requirements listing with aiogram, aiosqlite, gspread etc.
+4. "install_run_bat": Complete installer script. It must check for Python, set up an isolated venv virtual environment, activate it, pip install, and execute python main.py.
+5. "install_run_sh": Shell script equivalent for macOS/Linux systems.
+6. "README_txt": Instruction text with comprehensive guide.
+
+Ensure the final JSON returned conforms exactly to this JSON schema:
+{
+  "main_py": "code of main.py",
+  "env_template": "variables of .env_template",
+  "requirements_txt": "dependencies of requirements.txt",
+  "install_run_bat": "batch code",
+  "install_run_sh": "shell code",
+  "README_txt": "markdown instructions"
+}`;
+
+            const userQuery = `Assemble the complete Telegram Bot files package based on the entire conversation requirements. Return the final structured files now.`;
+
+            const activeApiKey = document.getElementById("user-api-key").value.trim() || apiKey;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeApiKey}`;
+            const payload = {
+                contents: conversationHistory.concat([{ role: "user", parts: [{ text: userQuery }] }]),
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            main_py: { type: "STRING" },
+                            env_template: { type: "STRING" },
+                            requirements_txt: { type: "STRING" },
+                            install_run_bat: { type: "STRING" },
+                            install_run_sh: { type: "STRING" },
+                            README_txt: { type: "STRING" }
+                        },
+                        required: ["main_py", "env_template", "requirements_txt", "install_run_bat", "install_run_sh", "README_txt"]
+                    }
+                }
+            };
+
+            try {
+                if (!activeApiKey) {
+                    throw new Error("API-ключ не найден. Пожалуйста, вставьте ваш Gemini API Key в поле вверху боковой панели.");
+                }
+
+                setTimeout(() => addStep("[2/4] Проектирование реляционной БД SQLite и обработчиков aiogram..."), 1500);
+                setTimeout(() => addStep("[3/4] Сборка локальной песочницы автоустановщика..."), 3000);
+
+                const result = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                addStep("[4/4] Запись проекта в системное окружение Конструктора...");
+                const responseData = JSON.parse(result.candidates[0].content.parts[0].text);
+
+                // Запись полученных от ИИ файлов в виртуальную файловую систему
+                projectFiles["main.py"].content = responseData.main_py;
+                projectFiles[".env_template"].content = responseData.env_template;
+                projectFiles["requirements.txt"].content = responseData.requirements_txt;
+                projectFiles["install_run.bat"].content = responseData.install_run_bat;
+                projectFiles["install_run.sh"].content = responseData.install_run_sh;
+                projectFiles["ІНСТРУКЦІЯ.txt"].content = responseData.README_txt;
+
+                // Сброс старого демо-сценария для новой генерации
+                DemoEngine.script = null;
+
+                // Обновление UI
+                editorEl.value = projectFiles[currentFile].content;
+                renderFileList();
+
+                // Автоматическое переключение на вкладку проводника
+                tabFilesBtn.click();
+
+                document.getElementById("build-status-loader").remove();
+                const successMsgHtml = `
+                    <div class="flex gap-2.5 max-w-[85%]">
+                        <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">✅</div>
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-3 text-xs leading-relaxed text-slate-200">
+                            🎉 <b>Проект успешно сгенерирован!</b><br>
+                            Все созданные файлы теперь доступны во вкладке «Проводник Файлов» справа. Вы можете детально изучить их, дописать код или сразу загрузить ZIP-архив, нажав кнопку «Скачать проект в .ZIP» вверху.
+                        </div>
+                    </div>
+                `;
+                chatMessagesEl.insertAdjacentHTML("beforeend", successMsgHtml);
+                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+            } catch (error) {
+                console.error(error);
+                if (document.getElementById("build-status-loader")) {
+                    document.getElementById("build-status-loader").remove();
+                }
+                showError(`Ошибка генерации проекта ИИ: ${error.message}`);
+            } finally {
+                btnForceGenerate.disabled = false;
+                btnForceGenerate.innerHTML = `🚀 Сгенерировать проект сейчас`;
+            }
+        };
+
+        // --- ИИ-РЕДАКТОР КОДА В РЕАЛЬНОМ ВРЕМЕНИ ---
+        const btnRefactor = document.getElementById("btn-refactor");
+        const codePrompt = document.getElementById("code-prompt");
+
+        btnRefactor.onclick = async function() {
+            const prompt = codePrompt.value.trim();
+            if (!prompt) {
+                showError("Пожалуйста, введите инструкции для ИИ-редактора!");
+                return;
+            }
+
+            btnRefactor.disabled = true;
+            btnRefactor.textContent = "⚙️ Рефакторинг...";
+
+            const activeContent = editorEl.value;
+
+            const systemPrompt = `You are a high-speed AI programmer. Take the provided file and apply the changes requested by the user.
+Retain formatting, logic, and output ONLY the complete rewritten file code. Maintain correct Python/syntax format. Use Russian.
+
+Return a Structured JSON object:
+{
+  "updated_content": "the entire rewritten file contents"
+}`;
+
+            const userQuery = `Filename: ${currentFile}\nInstruction: ${prompt}\n\nCode:\n${activeContent}`;
+
+            const activeApiKey = document.getElementById("user-api-key").value.trim() || apiKey;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeApiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            updated_content: { type: "STRING" }
+                        },
+                        required: ["updated_content"]
+                    }
+                }
+            };
+
+            try {
+                if (!activeApiKey) {
+                    throw new Error("API-ключ не найден. Пожалуйста, вставьте ваш Gemini API Key в поле вверху боковой панели.");
+                }
+
+                const result = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const parsed = JSON.parse(result.candidates[0].content.parts[0].text);
+                if (parsed.updated_content) {
+                    editorEl.value = parsed.updated_content;
+                    projectFiles[currentFile].content = parsed.updated_content;
+                    codePrompt.value = "";
+                } else {
+                    throw new Error("Получен пустой ответ от ИИ.");
+                }
+
+            } catch (error) {
+                console.error(error);
+                showError(`Ошибка ИИ-Редактора кода: ${error.message}`);
+            } finally {
+                btnRefactor.disabled = false;
+                btnRefactor.textContent = "✨ Применить изменения ИИ";
+            }
+        };
+
+        // --- ДВИЖОК СКАТЫВАНИЯ И СКАЧИВАНИЯ ZIP-АРХИВА ---
+        btnDownload.onclick = async function() {
+            projectFiles[currentFile].content = editorEl.value;
+
+            const zip = new JSZip();
+
+            // Добавление всех файлов во временную файловую систему архива
+            Object.keys(projectFiles).forEach(key => {
+                const file = projectFiles[key];
+                zip.file(file.name, file.content);
+            });
+
+            try {
+                btnDownload.disabled = true;
+                btnDownload.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-950 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Сжатие ZIP...
+                `;
+
+                const blob = await zip.generateAsync({type: "blob"});
+                
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.style.display = "none";
+                a.href = url;
+                a.download = "universal_booking_bot_v2.zip";
+                document.body.appendChild(a);
+                a.click();
+                
+                setTimeout(() => {
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                    showSuccessModal();
+                }, 150);
+
+            } catch (error) {
+                console.error("ZIP Generation Error:", error);
+                showError("Произошла критическая ошибка при формировании ZIP-архива.");
+            } finally {
+                btnDownload.disabled = false;
+                btnDownload.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Скачать готовый .ZIP
+                `;
+            }
+        };
+
+        // --- ДВИЖОК ЗАГРУЗКИ ZIP-ШАБЛОНОВ ---
+        document.getElementById('zip-upload-input').addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            try {
+                const zip = await JSZip.loadAsync(file);
+                // Очистка текущих файлов
+                for(let k in projectFiles) delete projectFiles[k];
+
+                let envContent = '';
+                let envFilename = '';
+
+                // Чтение файлов из архива
+                for (let relativePath of Object.keys(zip.files)) {
+                    if (!zip.files[relativePath].dir) {
+                        const content = await zip.files[relativePath].async("string");
+                        let type = "text";
+                        if (relativePath.endsWith(".py")) type = "python";
+                        else if (relativePath.endsWith(".bat")) type = "bat";
+                        else if (relativePath.endsWith(".sh")) type = "shell";
+                        
+                        projectFiles[relativePath] = {
+                            name: relativePath,
+                            type: type,
+                            content: content
+                        };
+
+                        if (relativePath === ".env" || relativePath === ".env_template") {
+                            envContent = content;
+                            envFilename = relativePath;
+                        }
+                    }
+                }
+
+                // Устанавливаем currentFile (по умолчанию main.py если есть)
+                if (projectFiles["main.py"]) {
+                    currentFile = "main.py";
+                } else {
+                    currentFile = Object.keys(projectFiles)[0];
+                }
+
+                editorEl.value = projectFiles[currentFile].content;
+                currentFilenameEl.textContent = projectFiles[currentFile].name;
+                fileTypeEl.textContent = projectFiles[currentFile].type;
+                renderFileList();
+                
+                // Сброс сценария при загрузке нового шаблона
+                DemoEngine.script = null;
+                
+                showError("Шаблон успешно загружен!");
+
+                // Обработка .env файла
+                if (envContent) {
+                    parseEnvAndShowConfig(envContent, envFilename);
+                }
+
+            } catch (err) {
+                console.error(err);
+                showError("Ошибка загрузки ZIP-архива: " + err.message);
+            }
+        });
+
+        function parseEnvAndShowConfig(content, filename) {
+            const container = document.getElementById("config-keys-container");
+            const list = document.getElementById("config-keys-list");
+            list.innerHTML = "";
+            
+            const lines = content.split(/\r?\n/);
+            const keys = [];
+            
+            lines.forEach(line => {
+                if (line.trim() && !line.startsWith("#") && line.includes("=")) {
+                    const parts = line.split("=");
+                    keys.push({ key: parts[0].trim(), value: parts.slice(1).join("=").trim() });
+                }
+            });
+
+            if (keys.length === 0) return;
+
+            keys.forEach(k => {
+                const item = document.createElement("div");
+                item.className = "flex flex-col gap-0.5";
+                item.innerHTML = \`
+                    <label class="text-[9px] uppercase tracking-wider text-indigo-300">\${k.key}</label>
+                    <input type="text" data-key="\${k.key}" value="\${k.value}" class="env-key-input bg-slate-900 border border-slate-700 rounded p-1.5 text-[10px] text-white w-full">
+                \`;
+                list.appendChild(item);
+            });
+
+            container.classList.remove("hidden");
+
+            document.getElementById("btn-save-keys").onclick = () => {
+                let newContent = content;
+                const inputs = document.querySelectorAll('.env-key-input');
+                inputs.forEach(input => {
+                    const key = input.getAttribute("data-key");
+                    const val = input.value;
+                    const regex = new RegExp(\`^\${key}=.*$\`, 'm');
+                    if (newContent.match(regex)) {
+                        newContent = newContent.replace(regex, \`\${key}=\${val}\`);
+                    } else {
+                        newContent += \`\\n\${key}=\${val}\`;
+                    }
+                });
+                projectFiles[filename].content = newContent;
+                if (currentFile === filename) {
+                    editorEl.value = newContent;
+                }
+                container.classList.add("hidden");
+                showError("Ключи успешно сохранены в " + filename);
+            };
+        }
+
+        // --- ДВИЖОК ДЕМО-ЧАТА ---
+        const DemoEngine = {
+            chatContainer: document.getElementById("demo-chat-container"),
+            titleEl: document.getElementById("demo-header-title"),
+            script: null,
+            init: async function() {
+                if (this.script) return; // Уже инициализирован
+
+                // Попытка сгенерировать скрипт демо-чата на основе main.py
+                const mainCode = projectFiles["main.py"] ? projectFiles["main.py"].content : "";
+                if (!mainCode) {
+                    this.addMsg("bot", "Ошибка: main.py не найден в проекте.");
+                    return;
+                }
+
+                this.chatContainer.innerHTML = '<div class="text-[10px] text-slate-400 text-center py-4">Подготовка демо-скрипта...</div>';
+                
+                const activeApiKey = document.getElementById("user-api-key").value.trim() || apiKey;
+                if (!activeApiKey) {
+                    this.chatContainer.innerHTML = '<div class="text-[10px] text-slate-400 text-center py-4">Нужен API ключ Gemini для запуска демо.</div>';
+                    return;
+                }
+
+                const systemPrompt = \`You are an AI that parses python Telegram bots.
+Analyze the following main.py and extract a simple interactive scenario for a frontend mock chat.
+Output ONLY a JSON array of message objects.
+Format: [{"sender": "user", "text": "/start"}, {"sender": "bot", "text": "Hello! Choose an option:", "buttons": ["Option 1", "Option 2"]}, {"sender": "user", "text": "Option 1"}, {"sender": "bot", "text": "You chose Option 1."}]
+Limit to 4-6 conversational turns.\`;
+
+                const url = \`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=\${activeApiKey}\`;
+                
+                try {
+                    const result = await fetchWithRetry(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: "Code:\\n" + mainCode }] }],
+                            systemInstruction: { parts: [{ text: systemPrompt }] },
+                            generationConfig: { responseMimeType: "application/json" }
+                        })
+                    });
+                    
+                    const responseData = JSON.parse(result.candidates[0].content.parts[0].text);
+                    this.script = responseData;
+                    this.start();
+                } catch(e) {
+                    console.error("Demo script generation failed:", e);
+                    this.chatContainer.innerHTML = '<div class="text-[10px] text-rose-400 text-center py-4">Не удалось сгенерировать демо.</div>';
+                }
+            },
+            start: function() {
+                this.chatContainer.innerHTML = '';
+                document.getElementById("demo-chat-keyboard").innerHTML = '';
+                if (!this.script || !this.script.length) {
+                    this.addMsg("bot", "Бот запущен, но сценарий пуст.");
+                    return;
+                }
+                this.step = 0;
+                this.playNext();
+            },
+            playNext: function() {
+                if (this.step >= this.script.length) return;
+                const msg = this.script[this.step];
+                
+                if (msg.sender === 'user') {
+                    // Ожидаем нажатия от пользователя (выводим кнопку, имитирующую ввод, или берем из предыдущей клавиатуры)
+                    const kbContainer = document.getElementById("demo-chat-keyboard");
+                    kbContainer.innerHTML = '';
+                    const btn = document.createElement("button");
+                    btn.className = "bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 rounded-lg text-[11px] border border-slate-700 transition-colors w-full";
+                    btn.textContent = "Отправить: " + msg.text;
+                    btn.onclick = () => {
+                        this.addMsg("user", msg.text);
+                        kbContainer.innerHTML = '';
+                        this.step++;
+                        setTimeout(() => this.playNext(), 600); // Задержка ответа бота
+                    };
+                    kbContainer.appendChild(btn);
+                } else {
+                    // Вывод ответа бота
+                    this.addMsg("bot", msg.text);
+                    if (msg.buttons) {
+                        const kbContainer = document.getElementById("demo-chat-keyboard");
+                        kbContainer.innerHTML = '';
+                        msg.buttons.forEach(b => {
+                            const btn = document.createElement("button");
+                            btn.className = "bg-slate-800 text-white font-semibold py-2 rounded-lg text-[11px] border border-slate-700 w-full opacity-50 cursor-not-allowed";
+                            btn.textContent = b;
+                            kbContainer.appendChild(btn);
+                        });
+                    }
+                    this.step++;
+                    if (this.step < this.script.length && this.script[this.step].sender === 'user') {
+                        setTimeout(() => this.playNext(), 500);
+                    }
+                }
+            },
+            addMsg: function(sender, text) {
+                const div = document.createElement("div");
+                if (sender === 'user') {
+                    div.className = "flex justify-end msg-animate";
+                    div.innerHTML = \`<div class="bg-indigo-600 text-white rounded-2xl rounded-tr-none px-3 py-2 text-[11px] max-w-[85%]">\${text}</div>\`;
+                } else {
+                    div.className = "flex justify-start msg-animate";
+                    div.innerHTML = \`<div class="bg-slate-800 text-slate-200 border border-slate-700 rounded-2xl rounded-tl-none px-3 py-2 text-[11px] max-w-[85%] whitespace-pre-wrap">\${text}</div>\`;
+                }
+                this.chatContainer.appendChild(div);
+                this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+            }
+        };
+
+        // --- ФУНКЦИЯ САМОРЕПЛИКАЦИИ (СКАЧИВАНИЕ САМОГО КОНСТРУКТОРА) ---
+        btnDownloadSelf.onclick = function() {
+            try {
+                // Извлекаем актуальный HTML-код всей открытой страницы прямо сейчас
+                const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+                
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.style.display = "none";
+                a.href = url;
+                a.download = "telegram_bot_creator.html";
+                document.body.appendChild(a);
+                a.click();
+                
+                setTimeout(() => {
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                }, 150);
+            } catch (e) {
+                console.error("Self-download error:", e);
+                showError("Не удалось скачать файл Конструктора: " + e.message);
+            }
+        };
+
+        function showSuccessModal() {
+            modal.classList.remove("hidden");
+            setTimeout(() => {
+                modal.classList.add("opacity-100");
+                modalContent.classList.remove("scale-95");
+                modalContent.classList.add("scale-100");
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.remove("opacity-100");
+            modalContent.classList.remove("scale-100");
+            modalContent.classList.add("scale-95");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+            }, 300);
+        }
+    </script>
+
+</body></html>
